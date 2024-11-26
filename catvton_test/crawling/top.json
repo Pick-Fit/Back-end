@@ -1,0 +1,2489 @@
+{
+  "T-shirt_ sweatshirt": [
+    {
+      "product_info": {
+        "id": 3,
+        "brand": "이자벨마랑",
+        "title": "모비 로고 스웨트셔츠 에크루"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1723774263358_263d24f33122beb0840c4e3895cd7de2_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.34933552145957947
+            },
+            "secondary_style": {
+              "style": "minimal",
+              "confidence": 0.20628562569618225
+            },
+            "all_scores": {
+              "classic": 0.14141105115413666,
+              "minimal": 0.20628562569618225,
+              "street_luxury": 0.1731165200471878,
+              "romantic": 0.12985122203826904,
+              "sporty_luxury": 0.34933552145957947
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 4,
+        "brand": "이자벨마랑",
+        "title": "모비 벨벳 로고 맨투맨 다크 플럼"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1697527529619_daa232639a9d3e03af083ade1054ee81_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.31987279653549194
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.1989542543888092
+            },
+            "all_scores": {
+              "classic": 0.14572130143642426,
+              "minimal": 0.14234118163585663,
+              "street_luxury": 0.1989542543888092,
+              "romantic": 0.19311049580574036,
+              "sporty_luxury": 0.31987279653549194
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 6,
+        "brand": "폴로랄프로렌",
+        "title": "랄프 로렌 폴로 티셔츠 211910158 GREY"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain-image/20240813_638590763125903688_22138664_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.3129368722438812
+            },
+            "secondary_style": {
+              "style": "minimal",
+              "confidence": 0.278116375207901
+            },
+            "all_scores": {
+              "classic": 0.08685960620641708,
+              "minimal": 0.278116375207901,
+              "street_luxury": 0.18367348611354828,
+              "romantic": 0.13841374218463898,
+              "sporty_luxury": 0.3129368722438812
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 8,
+        "brand": "아미",
+        "title": "패치 후드 티셔츠 블랙"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1701767833183_921c163ad147fe84aff429df04f737ff_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "minimal",
+              "confidence": 0.3070450723171234
+            },
+            "secondary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.21050265431404114
+            },
+            "all_scores": {
+              "classic": 0.11340250074863434,
+              "minimal": 0.3070450723171234,
+              "street_luxury": 0.18784968554973602,
+              "romantic": 0.18120010197162628,
+              "sporty_luxury": 0.21050265431404114
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 12,
+        "brand": "아미",
+        "title": "아미 알렉산드르 마티우시 후디 그레이"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1720608968319_e97cc16382ba7f353d8839fc28e7ac28_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.29913783073425293
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.23667293787002563
+            },
+            "all_scores": {
+              "classic": 0.0619310662150383,
+              "minimal": 0.1703985184431076,
+              "street_luxury": 0.23667293787002563,
+              "romantic": 0.23185963928699493,
+              "sporty_luxury": 0.29913783073425293
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 14,
+        "brand": "이자벨마랑",
+        "title": "휴스턴 기모 맨투맨 페이드블랙"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain-image/20240820_638597838077873582_22962348_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.28695863485336304
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.25578439235687256
+            },
+            "all_scores": {
+              "classic": 0.11801183968782425,
+              "minimal": 0.11993743479251862,
+              "street_luxury": 0.25578439235687256,
+              "romantic": 0.21930769085884094,
+              "sporty_luxury": 0.28695863485336304
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 16,
+        "brand": "디젤",
+        "title": "디젤 후드 티셔츠 A14492 0IPAC 900"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1726199436572_8242eb30f906a41522dba115cc43e57d_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.4123409390449524
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.20608016848564148
+            },
+            "all_scores": {
+              "classic": 0.05895889550447464,
+              "minimal": 0.18247932195663452,
+              "street_luxury": 0.20608016848564148,
+              "romantic": 0.14014072716236115,
+              "sporty_luxury": 0.4123409390449524
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 22,
+        "brand": "루이비통",
+        "title": "중고 1A9WAI 38 사이즈 베이지 클레어 오픈 백 크롭 탑"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain/1695620869226-57679607-b7b1-4f3f-bd20-7b045bec0c6a.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "street_luxury",
+              "confidence": 0.35434669256210327
+            },
+            "secondary_style": {
+              "style": "minimal",
+              "confidence": 0.2559746503829956
+            },
+            "all_scores": {
+              "classic": 0.15903082489967346,
+              "minimal": 0.2559746503829956,
+              "street_luxury": 0.35434669256210327,
+              "romantic": 0.085558220744133,
+              "sporty_luxury": 0.14508964121341705
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 23,
+        "brand": "몽클레르",
+        "title": "로고 패치 레터링 기모 맨투맨 화이트 8G000 29 809KX 034 61748"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1728543638560_2b92a93a81274c61fa884b3ccdb8cba7_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "street_luxury",
+              "confidence": 0.3631698787212372
+            },
+            "secondary_style": {
+              "style": "minimal",
+              "confidence": 0.26328590512275696
+            },
+            "all_scores": {
+              "classic": 0.06943164765834808,
+              "minimal": 0.26328590512275696,
+              "street_luxury": 0.3631698787212372,
+              "romantic": 0.08258194476366043,
+              "sporty_luxury": 0.22153066098690033
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 24,
+        "brand": "막스마라",
+        "title": "팔미라 로고 프린팅 후드티 블랙"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain/1710308680600-a31ed359-d628-4bba-8fa4-25b4a3383554.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.28559717535972595
+            },
+            "secondary_style": {
+              "style": "romantic",
+              "confidence": 0.21837179362773895
+            },
+            "all_scores": {
+              "classic": 0.09166649729013443,
+              "minimal": 0.1999148428440094,
+              "street_luxury": 0.20444966852664948,
+              "romantic": 0.21837179362773895,
+              "sporty_luxury": 0.28559717535972595
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 25,
+        "brand": "이자벨마랑",
+        "title": "밀라 로고 맨투맨 에크루"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain/1722498663545-1b6d825e-d7d4-40e0-afbb-efcab360a76a.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.33206284046173096
+            },
+            "secondary_style": {
+              "style": "minimal",
+              "confidence": 0.20721787214279175
+            },
+            "all_scores": {
+              "classic": 0.11008186638355255,
+              "minimal": 0.20721787214279175,
+              "street_luxury": 0.15055310726165771,
+              "romantic": 0.20008431375026703,
+              "sporty_luxury": 0.33206284046173096
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 26,
+        "brand": "꼼데가르송",
+        "title": "꼼데가르송 플레이 니트 브이넥 미디엄그레이 레드와펜 가디건"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1725452106439_32ddd2f7499871a5f6688204546263cf_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "minimal",
+              "confidence": 0.3286180794239044
+            },
+            "secondary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.30863845348358154
+            },
+            "all_scores": {
+              "classic": 0.10316931456327438,
+              "minimal": 0.3286180794239044,
+              "street_luxury": 0.11156121641397476,
+              "romantic": 0.14801287651062012,
+              "sporty_luxury": 0.30863845348358154
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 29,
+        "brand": "폴로랄프로렌",
+        "title": "23FW 프린팅 반집업 카라 기모 티셔츠 211922887 001"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1728544832307_611a623ab5d5550fd5f56856d179a619_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "street_luxury",
+              "confidence": 0.2467649281024933
+            },
+            "secondary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.24130049347877502
+            },
+            "all_scores": {
+              "classic": 0.12997782230377197,
+              "minimal": 0.2364206612110138,
+              "street_luxury": 0.2467649281024933,
+              "romantic": 0.14553609490394592,
+              "sporty_luxury": 0.24130049347877502
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 30,
+        "brand": "이자벨마랑",
+        "title": "모빌리 기모 맨투맨 네이비/옐로우"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1715330794306_4d83ea94fbc87218b073debe09afad2c_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.4171238839626312
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.2247626632452011
+            },
+            "all_scores": {
+              "classic": 0.15226951241493225,
+              "minimal": 0.0731007307767868,
+              "street_luxury": 0.2247626632452011,
+              "romantic": 0.1327432096004486,
+              "sporty_luxury": 0.4171238839626312
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 32,
+        "brand": "아미",
+        "title": "13주년 여성 하트 자수 맨투맨 E22USW002 747 250"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1728630284051_98761d1c1848f9796ddfdb3e8a806f8f_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "street_luxury",
+              "confidence": 0.3090725541114807
+            },
+            "secondary_style": {
+              "style": "minimal",
+              "confidence": 0.2984159290790558
+            },
+            "all_scores": {
+              "classic": 0.09610523283481598,
+              "minimal": 0.2984159290790558,
+              "street_luxury": 0.3090725541114807,
+              "romantic": 0.07447844743728638,
+              "sporty_luxury": 0.22192786633968353
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 35,
+        "brand": "몽클레르",
+        "title": "몽클레어 반팔 티셔츠 8C00026 899SP033 WHITE"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1728544048487_1df2fe0d292fb08b04cd2975957e6b71_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "street_luxury",
+              "confidence": 0.29407981038093567
+            },
+            "secondary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.24467436969280243
+            },
+            "all_scores": {
+              "classic": 0.16036388278007507,
+              "minimal": 0.0705886110663414,
+              "street_luxury": 0.29407981038093567,
+              "romantic": 0.23029330372810364,
+              "sporty_luxury": 0.24467436969280243
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 36,
+        "brand": "톰브라운",
+        "title": "22FW 키즈 여성 사선 완장 맨투맨 KJT001A 07132 035"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1728629378673_8bee8704c505f294cbc7f21cf18ed173_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.36853548884391785
+            },
+            "secondary_style": {
+              "style": "romantic",
+              "confidence": 0.22929146885871887
+            },
+            "all_scores": {
+              "classic": 0.08531947433948517,
+              "minimal": 0.1042741984128952,
+              "street_luxury": 0.2125793695449829,
+              "romantic": 0.22929146885871887,
+              "sporty_luxury": 0.36853548884391785
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 37,
+        "brand": "프라다",
+        "title": "프라다 반팔 티셔츠 3549BSOOO15S8F0XPE"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1730873649071_6c48f042b6d461aadb9fb97319d67356_1.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.3923349678516388
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.21959568560123444
+            },
+            "all_scores": {
+              "classic": 0.13724148273468018,
+              "minimal": 0.09265486896038055,
+              "street_luxury": 0.21959568560123444,
+              "romantic": 0.15817302465438843,
+              "sporty_luxury": 0.3923349678516388
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 40,
+        "brand": "몽클레르",
+        "title": "드래곤 스웨트셔츠 화이트"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain/1728363033231-b0d56e4d-ecf9-42a7-b857-243f562c91b5.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "romantic",
+              "confidence": 0.22663548588752747
+            },
+            "secondary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.22435946762561798
+            },
+            "all_scores": {
+              "classic": 0.17841848731040955,
+              "minimal": 0.17481712996959686,
+              "street_luxury": 0.19576944410800934,
+              "romantic": 0.22663548588752747,
+              "sporty_luxury": 0.22435946762561798
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 41,
+        "brand": "가니",
+        "title": "가니 그래픽 로고 프린트 티셔츠 T4002"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain-image/20240717_638568316139568992_22762394_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.3271966576576233
+            },
+            "secondary_style": {
+              "style": "classic",
+              "confidence": 0.255326509475708
+            },
+            "all_scores": {
+              "classic": 0.255326509475708,
+              "minimal": 0.07062219828367233,
+              "street_luxury": 0.2314308136701584,
+              "romantic": 0.1154237613081932,
+              "sporty_luxury": 0.3271966576576233
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 42,
+        "brand": "마르니",
+        "title": "중고 GCMD0455E0 38 사이즈 크롭 니트"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain/1715921522514-c75200d9-6d06-4a93-8f65-f67d46b13603.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.3452845513820648
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.21086905896663666
+            },
+            "all_scores": {
+              "classic": 0.11978548020124435,
+              "minimal": 0.12564115226268768,
+              "street_luxury": 0.21086905896663666,
+              "romantic": 0.19841979444026947,
+              "sporty_luxury": 0.3452845513820648
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 44,
+        "brand": "이자벨마랑",
+        "title": "(W) 모비 로고 스웨트셔츠 라이트 블루 에크루"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1730272455818_cc9b394dd9489369a6e4d34fe875bbde_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.38265460729599
+            },
+            "secondary_style": {
+              "style": "romantic",
+              "confidence": 0.22680355608463287
+            },
+            "all_scores": {
+              "classic": 0.1206316277384758,
+              "minimal": 0.08756271004676819,
+              "street_luxury": 0.18234743177890778,
+              "romantic": 0.22680355608463287,
+              "sporty_luxury": 0.38265460729599
+            }
+          }
+        },
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1730272454672_90df8523e2a84299e1c8258cbb5ef890_1.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.3699377477169037
+            },
+            "secondary_style": {
+              "style": "romantic",
+              "confidence": 0.22334733605384827
+            },
+            "all_scores": {
+              "classic": 0.11542703956365585,
+              "minimal": 0.09527022391557693,
+              "street_luxury": 0.19601765275001526,
+              "romantic": 0.22334733605384827,
+              "sporty_luxury": 0.3699377477169037
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 46,
+        "brand": "이자벨마랑",
+        "title": "모비 로고 스웨트셔츠 페이디드 블랙"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1722216402481_4bb9902feff5c99dc8affeb4679dabc4_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.3515777587890625
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.21169117093086243
+            },
+            "all_scores": {
+              "classic": 0.12047597765922546,
+              "minimal": 0.14148393273353577,
+              "street_luxury": 0.21169117093086243,
+              "romantic": 0.17477120459079742,
+              "sporty_luxury": 0.3515777587890625
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 47,
+        "brand": "비비안웨스트우드",
+        "title": "스프레이 ORB 에슬레틱 여성 맨투맨 티셔츠 화이트"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain/1704863664711-b70f839b-a453-42be-99fb-021614fabd28.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.40886667370796204
+            },
+            "secondary_style": {
+              "style": "romantic",
+              "confidence": 0.17166323959827423
+            },
+            "all_scores": {
+              "classic": 0.08958400040864944,
+              "minimal": 0.162221759557724,
+              "street_luxury": 0.16766437888145447,
+              "romantic": 0.17166323959827423,
+              "sporty_luxury": 0.40886667370796204
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 48,
+        "brand": "질샌더",
+        "title": "로고 프린팅 드로스트링 후드티셔츠 베이지"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1729237949321_4d0de736b60e951d9cf614904f2f9dd5_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.26952868700027466
+            },
+            "secondary_style": {
+              "style": "minimal",
+              "confidence": 0.2587541341781616
+            },
+            "all_scores": {
+              "classic": 0.07621116191148758,
+              "minimal": 0.2587541341781616,
+              "street_luxury": 0.22531305253505707,
+              "romantic": 0.17019295692443848,
+              "sporty_luxury": 0.26952868700027466
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 50,
+        "brand": "이자벨마랑",
+        "title": "밀라 벨벳 로고 기모 맨투맨 에크루"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain/1717404033141-ab37a2e9-da3c-49d7-b538-b3c47a12e2e5.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.23923443257808685
+            },
+            "secondary_style": {
+              "style": "romantic",
+              "confidence": 0.2259177267551422
+            },
+            "all_scores": {
+              "classic": 0.2069644182920456,
+              "minimal": 0.19213959574699402,
+              "street_luxury": 0.13574378192424774,
+              "romantic": 0.2259177267551422,
+              "sporty_luxury": 0.23923443257808685
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 52,
+        "brand": "사카이",
+        "title": "사카이 후드 티셔츠 2407394 376 Grey"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1721534626171_7f431d4ba320b890eb25f93bf0882c42_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "romantic",
+              "confidence": 0.2864428758621216
+            },
+            "secondary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.211351215839386
+            },
+            "all_scores": {
+              "classic": 0.12327273190021515,
+              "minimal": 0.19236519932746887,
+              "street_luxury": 0.18656794726848602,
+              "romantic": 0.2864428758621216,
+              "sporty_luxury": 0.211351215839386
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 55,
+        "brand": "톰브라운",
+        "title": "톰브라운 여성 맨투맨"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1717745623245_149b01b01692d42c4fdd5de69a2a2977_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.35639688372612
+            },
+            "secondary_style": {
+              "style": "minimal",
+              "confidence": 0.22434692084789276
+            },
+            "all_scores": {
+              "classic": 0.11300637573003769,
+              "minimal": 0.22434692084789276,
+              "street_luxury": 0.11756926774978638,
+              "romantic": 0.18868060410022736,
+              "sporty_luxury": 0.35639688372612
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 56,
+        "brand": "사카이",
+        "title": "사카이 투소재 후드티 2407108236"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1708618664662_64bd3f611fa844f5c375b94adb64783c_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.24639521539211273
+            },
+            "secondary_style": {
+              "style": "minimal",
+              "confidence": 0.2387310117483139
+            },
+            "all_scores": {
+              "classic": 0.09991896897554398,
+              "minimal": 0.2387310117483139,
+              "street_luxury": 0.2373841553926468,
+              "romantic": 0.17757056653499603,
+              "sporty_luxury": 0.24639521539211273
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 57,
+        "brand": "자크뮈스",
+        "title": "르 그로스 로고 티셔츠"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1708870847207_20382af10f4201e899fa0d0e21611856_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "minimal",
+              "confidence": 0.31209614872932434
+            },
+            "secondary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.28542840480804443
+            },
+            "all_scores": {
+              "classic": 0.08421514183282852,
+              "minimal": 0.31209614872932434,
+              "street_luxury": 0.20195625722408295,
+              "romantic": 0.11630406975746155,
+              "sporty_luxury": 0.28542840480804443
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 60,
+        "brand": "마린세르",
+        "title": "마린세르 반팔 티셔츠 WUW055ACJER0001TA10"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain-image/20240913_638618246153618788_23283422_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "street_luxury",
+              "confidence": 0.2774263918399811
+            },
+            "secondary_style": {
+              "style": "minimal",
+              "confidence": 0.19081686437129974
+            },
+            "all_scores": {
+              "classic": 0.17305980622768402,
+              "minimal": 0.19081686437129974,
+              "street_luxury": 0.2774263918399811,
+              "romantic": 0.18253982067108154,
+              "sporty_luxury": 0.1761571317911148
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 61,
+        "brand": "에트로",
+        "title": "에트로 반팔 티셔츠 WRMA0007AK412S9000 PINK"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1724393576956_f831dcb0b48f378a91489a28604a2f54_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.3867003917694092
+            },
+            "secondary_style": {
+              "style": "romantic",
+              "confidence": 0.19502319395542145
+            },
+            "all_scores": {
+              "classic": 0.16768980026245117,
+              "minimal": 0.10106624662876129,
+              "street_luxury": 0.1495203971862793,
+              "romantic": 0.19502319395542145,
+              "sporty_luxury": 0.3867003917694092
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 62,
+        "brand": "디스퀘어드2",
+        "title": "디스퀘어드2 긴팔 티셔츠 S80GU0092S25516 100 WHITE"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1730335588776_62618905354c1c48125a4af58a58ad78_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.3570859730243683
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.2931055426597595
+            },
+            "all_scores": {
+              "classic": 0.14717863500118256,
+              "minimal": 0.07624764740467072,
+              "street_luxury": 0.2931055426597595,
+              "romantic": 0.12638218700885773,
+              "sporty_luxury": 0.3570859730243683
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 63,
+        "brand": "마이클코어스",
+        "title": "마이클 코어스 후드 티셔츠 MF250U44MY 001BLACK"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1701339532850_25830e6541fe802b01e7255ed1cf92fc_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.3672412633895874
+            },
+            "secondary_style": {
+              "style": "romantic",
+              "confidence": 0.2071138471364975
+            },
+            "all_scores": {
+              "classic": 0.17469626665115356,
+              "minimal": 0.09856484830379486,
+              "street_luxury": 0.1523837298154831,
+              "romantic": 0.2071138471364975,
+              "sporty_luxury": 0.3672412633895874
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 65,
+        "brand": "질샌더",
+        "title": "질샌더 반팔 티셔츠 J40GC0001 J45048100"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1675225191479_60c4e62fd96f24ad5f0008fc680256eb_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.30403435230255127
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.27357935905456543
+            },
+            "all_scores": {
+              "classic": 0.15758125483989716,
+              "minimal": 0.12914219498634338,
+              "street_luxury": 0.27357935905456543,
+              "romantic": 0.13566283881664276,
+              "sporty_luxury": 0.30403435230255127
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 66,
+        "brand": "사카이",
+        "title": "사카이 반팔 티셔츠 240725S101"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1711803100619_96d3ed89ce136c47ef6b500962b849c9_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "street_luxury",
+              "confidence": 0.2968510389328003
+            },
+            "secondary_style": {
+              "style": "romantic",
+              "confidence": 0.23820887506008148
+            },
+            "all_scores": {
+              "classic": 0.13737115263938904,
+              "minimal": 0.15068070590496063,
+              "street_luxury": 0.2968510389328003,
+              "romantic": 0.23820887506008148,
+              "sporty_luxury": 0.17688819766044617
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 67,
+        "brand": "이자벨마랑",
+        "title": "마르고 크롭 맨투맨 페이드 블랙"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1732001046869_9a6f0d47810b5a9659e99f866dd418d9_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "street_luxury",
+              "confidence": 0.4021335542201996
+            },
+            "secondary_style": {
+              "style": "classic",
+              "confidence": 0.1959986537694931
+            },
+            "all_scores": {
+              "classic": 0.1959986537694931,
+              "minimal": 0.1425769329071045,
+              "street_luxury": 0.4021335542201996,
+              "romantic": 0.09256403893232346,
+              "sporty_luxury": 0.16672681272029877
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 68,
+        "brand": "질샌더",
+        "title": "질샌더 긴팔 티셔츠 J40GC0021J70021 102 WHITE"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1730265016133_cc356b5e0c3217deb3a09a42bb7e19a6_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.35715511441230774
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.18575294315814972
+            },
+            "all_scores": {
+              "classic": 0.14393089711666107,
+              "minimal": 0.16436493396759033,
+              "street_luxury": 0.18575294315814972,
+              "romantic": 0.14879605174064636,
+              "sporty_luxury": 0.35715511441230774
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 69,
+        "brand": "디젤",
+        "title": "(W) 디젤 M 라티나 골지 크롭 탑 블랙"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1730859265914_f240a8b336a59be57bd49d0a13f70bff_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "street_luxury",
+              "confidence": 0.3363063633441925
+            },
+            "secondary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.31009382009506226
+            },
+            "all_scores": {
+              "classic": 0.14311499893665314,
+              "minimal": 0.11155916750431061,
+              "street_luxury": 0.3363063633441925,
+              "romantic": 0.09892565757036209,
+              "sporty_luxury": 0.31009382009506226
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 70,
+        "brand": "알렉산더왕",
+        "title": "알렉산더 왕 후드 티셔츠 4CC3222069 094A"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1703010878511_baa25da1950ccfe4dd63a6360492fa4c_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.38994938135147095
+            },
+            "secondary_style": {
+              "style": "romantic",
+              "confidence": 0.18307596445083618
+            },
+            "all_scores": {
+              "classic": 0.09359490126371384,
+              "minimal": 0.16131147742271423,
+              "street_luxury": 0.17206835746765137,
+              "romantic": 0.18307596445083618,
+              "sporty_luxury": 0.38994938135147095
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 71,
+        "brand": "에트로",
+        "title": "에트로 후드 티셔츠 1Y669 99320200"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1730351361720_1488cbf79ed17de78db24a762339cf3d_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.31751129031181335
+            },
+            "secondary_style": {
+              "style": "minimal",
+              "confidence": 0.21913310885429382
+            },
+            "all_scores": {
+              "classic": 0.08986549824476242,
+              "minimal": 0.21913310885429382,
+              "street_luxury": 0.17405734956264496,
+              "romantic": 0.19943270087242126,
+              "sporty_luxury": 0.31751129031181335
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 74,
+        "brand": "랑방",
+        "title": "24FW 랑방 반팔 티셔츠 RW TS0030 J208 P2410 BLACK"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1731367486246_b755e13fa02d09545ef39634f5ab73ee_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "street_luxury",
+              "confidence": 0.3054131269454956
+            },
+            "secondary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.243882417678833
+            },
+            "all_scores": {
+              "classic": 0.2021447718143463,
+              "minimal": 0.10999324172735214,
+              "street_luxury": 0.3054131269454956,
+              "romantic": 0.13856640458106995,
+              "sporty_luxury": 0.243882417678833
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 77,
+        "brand": "알렉산더왕",
+        "title": "알렉산더 왕 폴로 티셔츠 4CC3241497100"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1718859854835_40b43dc3de71def4b4c7ddfa869be7da_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "street_luxury",
+              "confidence": 0.35131320357322693
+            },
+            "secondary_style": {
+              "style": "romantic",
+              "confidence": 0.216136634349823
+            },
+            "all_scores": {
+              "classic": 0.12720854580402374,
+              "minimal": 0.0892949104309082,
+              "street_luxury": 0.35131320357322693,
+              "romantic": 0.216136634349823,
+              "sporty_luxury": 0.21604672074317932
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 79,
+        "brand": "브루넬로쿠치넬리",
+        "title": "브루넬로 쿠치넬리 메탈릭 디테일 네크라인 V넥 탑 반팔 티셔츠 M0T18BD222C101 Black"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1722055846272_78ed3a25440ab6575ed2a2de22b52d76_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.22295455634593964
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.20496006309986115
+            },
+            "all_scores": {
+              "classic": 0.1899092048406601,
+              "minimal": 0.18316292762756348,
+              "street_luxury": 0.20496006309986115,
+              "romantic": 0.19901329278945923,
+              "sporty_luxury": 0.22295455634593964
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 85,
+        "brand": "프라다",
+        "title": "프라다 민소매 티셔츠 BIANCO"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1730298567290_d319b228c890fe81493d5758404036c4_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.28984278440475464
+            },
+            "secondary_style": {
+              "style": "romantic",
+              "confidence": 0.2591190040111542
+            },
+            "all_scores": {
+              "classic": 0.1263635903596878,
+              "minimal": 0.16588500142097473,
+              "street_luxury": 0.15878969430923462,
+              "romantic": 0.2591190040111542,
+              "sporty_luxury": 0.28984278440475464
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 86,
+        "brand": "발렌시아가",
+        "title": "발렌시아가 반팔 티셔츠 787349 TQVT1 9784"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1717649535718_f84a18a784e36ed617d5202f7b4cc224_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.4120708703994751
+            },
+            "secondary_style": {
+              "style": "romantic",
+              "confidence": 0.16025106608867645
+            },
+            "all_scores": {
+              "classic": 0.15082213282585144,
+              "minimal": 0.1223030835390091,
+              "street_luxury": 0.1545528620481491,
+              "romantic": 0.16025106608867645,
+              "sporty_luxury": 0.4120708703994751
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 87,
+        "brand": "구찌",
+        "title": "구찌 긴팔 티셔츠 789582XJGLM 9074 Bianco"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain-image/20241105_638663928520664425_23897032_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.3603447377681732
+            },
+            "secondary_style": {
+              "style": "romantic",
+              "confidence": 0.1927552968263626
+            },
+            "all_scores": {
+              "classic": 0.1214367002248764,
+              "minimal": 0.14925894141197205,
+              "street_luxury": 0.17620430886745453,
+              "romantic": 0.1927552968263626,
+              "sporty_luxury": 0.3603447377681732
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 90,
+        "brand": "단톤",
+        "title": "단톤 여성 크루넥 긴팔 티셔츠 DT-C0203TCB"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1709483842270_8f94428cc37ca1774b20c56b49ddc3ce_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.41218751668930054
+            },
+            "secondary_style": {
+              "style": "romantic",
+              "confidence": 0.15372170507907867
+            },
+            "all_scores": {
+              "classic": 0.13629330694675446,
+              "minimal": 0.15101927518844604,
+              "street_luxury": 0.1467781662940979,
+              "romantic": 0.15372170507907867,
+              "sporty_luxury": 0.41218751668930054
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 91,
+        "brand": "스포티앤리치",
+        "title": "로고 공용 맨투맨 블랙"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1731884823418_925418454a0c9521001918126a651cec_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.33516189455986023
+            },
+            "secondary_style": {
+              "style": "minimal",
+              "confidence": 0.2422056794166565
+            },
+            "all_scores": {
+              "classic": 0.11585510522127151,
+              "minimal": 0.2422056794166565,
+              "street_luxury": 0.17350009083747864,
+              "romantic": 0.13327722251415253,
+              "sporty_luxury": 0.33516189455986023
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 93,
+        "brand": "메종키츠네",
+        "title": "폭스 챔피언 LW00113KJ0008 P480 반팔 티셔츠"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain/1709134700756-41e10e05-16dc-4181-9949-6cdb81d30169.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.39038583636283875
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.2621692717075348
+            },
+            "all_scores": {
+              "classic": 0.1513110101222992,
+              "minimal": 0.060577698051929474,
+              "street_luxury": 0.2621692717075348,
+              "romantic": 0.13555622100830078,
+              "sporty_luxury": 0.39038583636283875
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 94,
+        "brand": "가니",
+        "title": "옐로우 스마일리 릴렉스 여성 반팔 티셔츠 브라이트 화이트"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain/1706017760927-3fee4a11-3caf-4090-9a60-77a8eba8bf9a.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.25511497259140015
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.24377284944057465
+            },
+            "all_scores": {
+              "classic": 0.1502358764410019,
+              "minimal": 0.1234084814786911,
+              "street_luxury": 0.24377284944057465,
+              "romantic": 0.22746792435646057,
+              "sporty_luxury": 0.25511497259140015
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 97,
+        "brand": "골든구스",
+        "title": "(W) 골든구스 앤트러사이트 크리스탈 맨투맨 그레이"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1720688312603_ab617877838f563457d136388bed33e2_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.40117892622947693
+            },
+            "secondary_style": {
+              "style": "romantic",
+              "confidence": 0.18270602822303772
+            },
+            "all_scores": {
+              "classic": 0.1141253113746643,
+              "minimal": 0.12313821166753769,
+              "street_luxury": 0.17885154485702515,
+              "romantic": 0.18270602822303772,
+              "sporty_luxury": 0.40117892622947693
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 98,
+        "brand": "아미",
+        "title": "13주년 여성 하트 로고자수 맨투맨 E22USW002 747 655"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1728548032530_3ab9d2a568ed76a3b555ca474efef6eb_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.3443952202796936
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.25008171796798706
+            },
+            "all_scores": {
+              "classic": 0.07000337541103363,
+              "minimal": 0.18728020787239075,
+              "street_luxury": 0.25008171796798706,
+              "romantic": 0.14823950827121735,
+              "sporty_luxury": 0.3443952202796936
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 99,
+        "brand": "비비안웨스트우드",
+        "title": "비비안웨스트우드 Vivienne Westwood 올오버 로고 패턴 크루넥 스웨트셔츠 1I010001J0079"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1723107504743_ebbd86026d5f73a66f3b6105a3bc51da_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.43955010175704956
+            },
+            "secondary_style": {
+              "style": "minimal",
+              "confidence": 0.17090155184268951
+            },
+            "all_scores": {
+              "classic": 0.11474687606096268,
+              "minimal": 0.17090155184268951,
+              "street_luxury": 0.14827217161655426,
+              "romantic": 0.126529261469841,
+              "sporty_luxury": 0.43955010175704956
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 100,
+        "brand": "메종마르지엘라",
+        "title": "마르지엘라 긴팔 티셔츠 S51GU0118S25540 101"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1728537017170_4cba4aca4055071d602a291cb57ba67a_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.3573560416698456
+            },
+            "secondary_style": {
+              "style": "minimal",
+              "confidence": 0.20530478656291962
+            },
+            "all_scores": {
+              "classic": 0.13105231523513794,
+              "minimal": 0.20530478656291962,
+              "street_luxury": 0.14041174948215485,
+              "romantic": 0.16587509214878082,
+              "sporty_luxury": 0.3573560416698456
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 101,
+        "brand": "우영미",
+        "title": "백로고 스웨트 후드 블랙"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1727152558737_b01bc5fe2f45177b19a991fb0f2f5fa4_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.2926931381225586
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.2400483936071396
+            },
+            "all_scores": {
+              "classic": 0.09940017759799957,
+              "minimal": 0.1638447642326355,
+              "street_luxury": 0.2400483936071396,
+              "romantic": 0.20401352643966675,
+              "sporty_luxury": 0.2926931381225586
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 102,
+        "brand": "끌로에",
+        "title": "(W) 끌로에 로고 자수 스웻 셔츠 베이지"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain-image/20240704_638556571934185544_22498979_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.42648470401763916
+            },
+            "secondary_style": {
+              "style": "minimal",
+              "confidence": 0.2017568200826645
+            },
+            "all_scores": {
+              "classic": 0.08396375924348831,
+              "minimal": 0.2017568200826645,
+              "street_luxury": 0.15542250871658325,
+              "romantic": 0.13237226009368896,
+              "sporty_luxury": 0.42648470401763916
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 103,
+        "brand": "로에베",
+        "title": "로에베 여성 코튼 플리스 릴랙스 핏 크롭 후드 티셔츠 오트 S359Y25X14"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain/1694306044364-59e10bd7-2ae3-4787-bbbe-dfb104360be7.png",
+          "analysis": {
+            "primary_style": {
+              "style": "minimal",
+              "confidence": 0.2674908936023712
+            },
+            "secondary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.26038292050361633
+            },
+            "all_scores": {
+              "classic": 0.13750164210796356,
+              "minimal": 0.2674908936023712,
+              "street_luxury": 0.19660618901252747,
+              "romantic": 0.13801829516887665,
+              "sporty_luxury": 0.26038292050361633
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 105,
+        "brand": "세인트제임스",
+        "title": "밍콰이어 스트라이프 남녀공용 긴팔 티셔츠 네주 마린"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1689668025958_f7faae2660e1c088fbfb9def6c66c820_1.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "street_luxury",
+              "confidence": 0.2522038519382477
+            },
+            "secondary_style": {
+              "style": "minimal",
+              "confidence": 0.23182706534862518
+            },
+            "all_scores": {
+              "classic": 0.11027819663286209,
+              "minimal": 0.23182706534862518,
+              "street_luxury": 0.2522038519382477,
+              "romantic": 0.18027406930923462,
+              "sporty_luxury": 0.22541683912277222
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 109,
+        "brand": "이자벨마랑",
+        "title": "13주년 MILLYP 벨벳 로고 맨투맨 SW0277 22A044E 02GY"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1728630455682_8b4d98caa19098dc8bb20cdb5f99a9fb_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.367712140083313
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.2142726182937622
+            },
+            "all_scores": {
+              "classic": 0.07916047424077988,
+              "minimal": 0.12713666260242462,
+              "street_luxury": 0.2142726182937622,
+              "romantic": 0.21171815693378448,
+              "sporty_luxury": 0.367712140083313
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 110,
+        "brand": "이자벨마랑",
+        "title": "MUZALI 로고 패치 스트링 기모 맨투맨 화이트"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain-image/20240605_638531709786073041_22537983_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.24505281448364258
+            },
+            "secondary_style": {
+              "style": "romantic",
+              "confidence": 0.24003200232982635
+            },
+            "all_scores": {
+              "classic": 0.15190519392490387,
+              "minimal": 0.13346077501773834,
+              "street_luxury": 0.22954916954040527,
+              "romantic": 0.24003200232982635,
+              "sporty_luxury": 0.24505281448364258
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 111,
+        "brand": "버버리",
+        "title": "중고 4548189 M사이즈 로고 자수 테리 맨투맨"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain/1719387856769-95ee7460-64e2-4061-befd-f490d11116e7.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.4385528862476349
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.18123579025268555
+            },
+            "all_scores": {
+              "classic": 0.14257176220417023,
+              "minimal": 0.13417163491249084,
+              "street_luxury": 0.18123579025268555,
+              "romantic": 0.1034679114818573,
+              "sporty_luxury": 0.4385528862476349
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 112,
+        "brand": "이자벨마랑",
+        "title": "로고 기모 후드티 오렌지"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1728540875438_df2a9ade5f69f566a3323896e938f65d_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.3432484567165375
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.25310903787612915
+            },
+            "all_scores": {
+              "classic": 0.09038495272397995,
+              "minimal": 0.11633193492889404,
+              "street_luxury": 0.25310903787612915,
+              "romantic": 0.19692564010620117,
+              "sporty_luxury": 0.3432484567165375
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 114,
+        "brand": "몽클레르",
+        "title": "몽클레어 여성 크리스탈 로고 패치 맨투맨 오프화이트"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain/1704884880837-ec33009d-d74e-4f2f-9ecd-d6b95a318e73.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.2586567997932434
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.22404566407203674
+            },
+            "all_scores": {
+              "classic": 0.12175296247005463,
+              "minimal": 0.2110026627779007,
+              "street_luxury": 0.22404566407203674,
+              "romantic": 0.18454189598560333,
+              "sporty_luxury": 0.2586567997932434
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 116,
+        "brand": "버버리",
+        "title": "버버리 이퀘스트리안 나이트 반팔 티셔츠"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain-image/20240123_638415662737929375_21178212_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "romantic",
+              "confidence": 0.2696329653263092
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.2563595473766327
+            },
+            "all_scores": {
+              "classic": 0.12604734301567078,
+              "minimal": 0.11870633065700531,
+              "street_luxury": 0.2563595473766327,
+              "romantic": 0.2696329653263092,
+              "sporty_luxury": 0.2292538583278656
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 117,
+        "brand": "셀프포트레이트",
+        "title": "셀프 포트레이트 민소매 티셔츠 828T BLUE Blue"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1724838147424_7cf6b0f3448b2dd09f3f138b614b9f82_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.3234652578830719
+            },
+            "secondary_style": {
+              "style": "classic",
+              "confidence": 0.23014645278453827
+            },
+            "all_scores": {
+              "classic": 0.23014645278453827,
+              "minimal": 0.12377993762493134,
+              "street_luxury": 0.17894136905670166,
+              "romantic": 0.14366690814495087,
+              "sporty_luxury": 0.3234652578830719
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 120,
+        "brand": "폴로랄프로렌",
+        "title": "랄프 로렌 반팔 티셔츠 211936000000 Cream"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain-image/20240629_638552180883763422_21823031_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "street_luxury",
+              "confidence": 0.2803347706794739
+            },
+            "secondary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.27119189500808716
+            },
+            "all_scores": {
+              "classic": 0.21651624143123627,
+              "minimal": 0.05261605978012085,
+              "street_luxury": 0.2803347706794739,
+              "romantic": 0.17934104800224304,
+              "sporty_luxury": 0.27119189500808716
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 122,
+        "brand": "이자벨마랑",
+        "title": "쥬얼 벨벳 로고 티셔츠 블랙"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain/1720405762098-8fcc9d59-41f6-4fde-b4e1-508d0e0eba93.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.4899711608886719
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.16500835120677948
+            },
+            "all_scores": {
+              "classic": 0.121344655752182,
+              "minimal": 0.06842740625143051,
+              "street_luxury": 0.16500835120677948,
+              "romantic": 0.1552484780550003,
+              "sporty_luxury": 0.4899711608886719
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 124,
+        "brand": "엠에스지엠",
+        "title": "엠에스지엠 후드 티셔츠 2000MDM515 20000199"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1705559490430_e5e2e3e4af564c30917462c9c999ec2b_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "romantic",
+              "confidence": 0.26606422662734985
+            },
+            "secondary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.23860692977905273
+            },
+            "all_scores": {
+              "classic": 0.16070407629013062,
+              "minimal": 0.18178993463516235,
+              "street_luxury": 0.15283487737178802,
+              "romantic": 0.26606422662734985,
+              "sporty_luxury": 0.23860692977905273
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 125,
+        "brand": "메종키츠네",
+        "title": "메종키츠네 탑 LW00302KM0001 Pink"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain-image/20241106_638664489621423663_23292439_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.36320871114730835
+            },
+            "secondary_style": {
+              "style": "romantic",
+              "confidence": 0.1902996450662613
+            },
+            "all_scores": {
+              "classic": 0.08792166411876678,
+              "minimal": 0.18176694214344025,
+              "street_luxury": 0.17680305242538452,
+              "romantic": 0.1902996450662613,
+              "sporty_luxury": 0.36320871114730835
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 126,
+        "brand": "메종키츠네",
+        "title": "메종키츠네 팔레 로얄 맨투맨 블랙"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1700473737502_abd21cb4ccb5eaf5df375747a96de99b_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.4324488341808319
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.15033301711082458
+            },
+            "all_scores": {
+              "classic": 0.13075116276741028,
+              "minimal": 0.14996615052223206,
+              "street_luxury": 0.15033301711082458,
+              "romantic": 0.1365007907152176,
+              "sporty_luxury": 0.4324488341808319
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 132,
+        "brand": "디젤",
+        "title": "긴팔 티셔츠 A123970DLAX 5KB"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain/1704354026101-f980dd11-f7a4-438b-82ad-f1537dfe9255.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.30928733944892883
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.21203236281871796
+            },
+            "all_scores": {
+              "classic": 0.08372759819030762,
+              "minimal": 0.19136908650398254,
+              "street_luxury": 0.21203236281871796,
+              "romantic": 0.20358362793922424,
+              "sporty_luxury": 0.30928733944892883
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 133,
+        "brand": "이자벨마랑",
+        "title": "이자벨마랑 모빌리 기모 맨투맨 에크루 / 핑크"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1681716758270_994c952cb812af2c1358cc74e298eb28_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.36690834164619446
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.218222513794899
+            },
+            "all_scores": {
+              "classic": 0.1562996804714203,
+              "minimal": 0.11841211467981339,
+              "street_luxury": 0.218222513794899,
+              "romantic": 0.1401572972536087,
+              "sporty_luxury": 0.36690834164619446
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 134,
+        "brand": "메종키츠네",
+        "title": "(W) 메종 키츠네 폭스 헤드 패치 레귤러 스웨트셔츠 잉크 블루"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1728377973767_9d612cb64b1d2ec8031d58d0b7820fa6_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.3785379230976105
+            },
+            "secondary_style": {
+              "style": "minimal",
+              "confidence": 0.2318723350763321
+            },
+            "all_scores": {
+              "classic": 0.061739616096019745,
+              "minimal": 0.2318723350763321,
+              "street_luxury": 0.19116349518299103,
+              "romantic": 0.13668657839298248,
+              "sporty_luxury": 0.3785379230976105
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 136,
+        "brand": "우영미",
+        "title": "(W) 비즈 백로고 뱃지 반팔티셔츠 블랙"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1727152646775_61b7798fdd0eaa0563e0e9823abe5138_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.25689658522605896
+            },
+            "secondary_style": {
+              "style": "classic",
+              "confidence": 0.23696230351924896
+            },
+            "all_scores": {
+              "classic": 0.23696230351924896,
+              "minimal": 0.0952686071395874,
+              "street_luxury": 0.22519554197788239,
+              "romantic": 0.1856769621372223,
+              "sporty_luxury": 0.25689658522605896
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 138,
+        "brand": "꾸레쥬",
+        "title": "홀리스틱 로고 패치 탱크 탑 블랙"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain-image/20240123_638415667404683147_21179518_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "romantic",
+              "confidence": 0.3933101296424866
+            },
+            "secondary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.23473426699638367
+            },
+            "all_scores": {
+              "classic": 0.07155188173055649,
+              "minimal": 0.18724818527698517,
+              "street_luxury": 0.1131555587053299,
+              "romantic": 0.3933101296424866,
+              "sporty_luxury": 0.23473426699638367
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 139,
+        "brand": "몽클레르",
+        "title": "로고 패치 라운드 반팔 티셔츠 화이트"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1715333078685_21bcbb2ce3716eef0c950c6b932d6390_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.3045303523540497
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.25121116638183594
+            },
+            "all_scores": {
+              "classic": 0.16490072011947632,
+              "minimal": 0.1165434718132019,
+              "street_luxury": 0.25121116638183594,
+              "romantic": 0.162814199924469,
+              "sporty_luxury": 0.3045303523540497
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 140,
+        "brand": "꾸레쥬",
+        "title": "버클 디테일 코튼 탱크 탑 베이지"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain/1710755365688-b6e3da38-7496-41c4-9ce6-8ec17aeb37b2.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "romantic",
+              "confidence": 0.3446303904056549
+            },
+            "secondary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.20301564037799835
+            },
+            "all_scores": {
+              "classic": 0.14370276033878326,
+              "minimal": 0.13946890830993652,
+              "street_luxury": 0.16918230056762695,
+              "romantic": 0.3446303904056549,
+              "sporty_luxury": 0.20301564037799835
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 141,
+        "brand": "마크제이콥스",
+        "title": "마크제이콥스 후드 티셔츠 2F4RTP032C66 100 WHITE"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1725768668689_904658fbdc54ee99559d1d0d5c8fe7f8_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "street_luxury",
+              "confidence": 0.2787502408027649
+            },
+            "secondary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.23181118071079254
+            },
+            "all_scores": {
+              "classic": 0.1097981408238411,
+              "minimal": 0.17531727254390717,
+              "street_luxury": 0.2787502408027649,
+              "romantic": 0.20432321727275848,
+              "sporty_luxury": 0.23181118071079254
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 142,
+        "brand": "비비안웨스트우드",
+        "title": "비비안웨스트우드 24FW 여성 ORB 로고 맨투맨 네이비 1I010001 J006O K410"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain/1729214052876-76019ba1-3d7a-4070-93f3-0b26b0540c29.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.2649865746498108
+            },
+            "secondary_style": {
+              "style": "minimal",
+              "confidence": 0.23127628862857819
+            },
+            "all_scores": {
+              "classic": 0.13505345582962036,
+              "minimal": 0.23127628862857819,
+              "street_luxury": 0.19467966258525848,
+              "romantic": 0.17400404810905457,
+              "sporty_luxury": 0.2649865746498108
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 143,
+        "brand": "이자벨마랑",
+        "title": "메릴 코튼 기모 원피스 에크루"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain/1696990264957-5b3ed17d-9d9d-412c-8d42-430a1676afac.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.3488927185535431
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.1933150440454483
+            },
+            "all_scores": {
+              "classic": 0.17380622029304504,
+              "minimal": 0.15660329163074493,
+              "street_luxury": 0.1933150440454483,
+              "romantic": 0.12738271057605743,
+              "sporty_luxury": 0.3488927185535431
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 144,
+        "brand": "꾸레쥬",
+        "title": "꾸레쥬 콘트라스트 로고 반팔 여성 티셔츠 VESJTS017JS0070 0098"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain/1728540953421-34331ee0-944d-4a94-b6b2-2e5618aa3114.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "street_luxury",
+              "confidence": 0.43128079175949097
+            },
+            "secondary_style": {
+              "style": "romantic",
+              "confidence": 0.17509135603904724
+            },
+            "all_scores": {
+              "classic": 0.0928555428981781,
+              "minimal": 0.13296088576316833,
+              "street_luxury": 0.43128079175949097,
+              "romantic": 0.17509135603904724,
+              "sporty_luxury": 0.16781140863895416
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 145,
+        "brand": "몽클레르",
+        "title": "몽클레어 긴팔 티셔츠 8C0000289A17 001 WHITE"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1709963252626_571fbb24b3a713e7095091ff9b270714_0.jpg",
+          "analysis": {
+            "primary_style": {
+              "style": "romantic",
+              "confidence": 0.27945780754089355
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.2570503056049347
+            },
+            "all_scores": {
+              "classic": 0.1229742094874382,
+              "minimal": 0.10691634565591812,
+              "street_luxury": 0.2570503056049347,
+              "romantic": 0.27945780754089355,
+              "sporty_luxury": 0.23360134661197662
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 146,
+        "brand": "룰루레몬",
+        "title": "룰루레몬 스쿠바 오버사이즈드 풀집 후드 6컬러"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/product-images/1727914261625_1d5153468b7c1096184b6577a020fe12_0.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "sporty_luxury",
+              "confidence": 0.3518720269203186
+            },
+            "secondary_style": {
+              "style": "classic",
+              "confidence": 0.21166367828845978
+            },
+            "all_scores": {
+              "classic": 0.21166367828845978,
+              "minimal": 0.11613311618566513,
+              "street_luxury": 0.16086086630821228,
+              "romantic": 0.1594703644514084,
+              "sporty_luxury": 0.3518720269203186
+            }
+          }
+        }
+      ]
+    },
+    {
+      "product_info": {
+        "id": 149,
+        "brand": "무스너클",
+        "title": "[무스너클] (M31LS641 292) 여성 후드 긴팔 티셔츠"
+      },
+      "style_analysis": [
+        {
+          "image_url": "https://image-cdn.trenbe.com/productmain/1652178414099-02dfbfa7-8ebf-4335-b12a-a4efd7546408.jpeg",
+          "analysis": {
+            "primary_style": {
+              "style": "classic",
+              "confidence": 0.29139572381973267
+            },
+            "secondary_style": {
+              "style": "street_luxury",
+              "confidence": 0.21978898346424103
+            },
+            "all_scores": {
+              "classic": 0.29139572381973267,
+              "minimal": 0.1722337305545807,
+              "street_luxury": 0.21978898346424103,
+              "romantic": 0.14900366961956024,
+              "sporty_luxury": 0.16757795214653015
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

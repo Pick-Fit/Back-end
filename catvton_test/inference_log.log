@@ -1,0 +1,38 @@
+2024-11-18 09:43:19,019 - INFO - Initializing CatVTONPipeline
+2024-11-18 09:43:20,261 - INFO - Initializing CatVTONPipeline
+2024-11-18 09:43:38,179 - INFO - Initializing CatVTONPipeline
+2024-11-18 09:43:43,181 - INFO - Initializing VAE and Mask processors
+2024-11-18 09:43:43,181 - INFO - Loading VITONHD test dataset
+2024-11-18 09:43:43,181 - INFO - Starting inference...
+2024-11-18 09:43:47,051 - INFO - Processing batch index: tensor([0])
+2024-11-18 09:59:33,777 - INFO - Initializing VAE and Mask processors
+2024-11-18 09:59:33,777 - INFO - Loading VITONHD test dataset
+2024-11-18 10:15:23,356 - INFO - Initializing VAE and Mask processors
+2024-11-18 10:20:13,302 - INFO - Initializing VAE and Mask processors
+2024-11-18 10:22:42,492 - INFO - Initializing VAE and Mask processors
+2024-11-18 10:23:41,408 - INFO - Initializing VAE and Mask processors
+2024-11-18 10:24:07,103 - INFO - Initializing VAE and Mask processors
+2024-11-18 10:27:18,406 - INFO - Initializing VAE and Mask processors
+2024-11-18 10:28:07,624 - INFO - Initializing VAE and Mask processors
+2024-11-18 10:29:30,425 - INFO - Initializing VAE and Mask processors
+2024-11-18 10:29:52,061 - INFO - Initializing VAE and Mask processors
+2024-11-18 10:31:27,397 - INFO - Initializing VAE and Mask processors
+2024-11-18 10:32:16,146 - INFO - Initializing VAE and Mask processors
+2024-11-18 10:34:58,828 - INFO - Initializing VAE and Mask processors
+2024-11-18 10:38:23,377 - INFO - Initializing VAE and Mask processors
+2024-11-18 10:45:40,335 - INFO - Initializing VAE and Mask processors
+2024-11-18 11:07:54,467 - INFO - Initializing VAE and Mask processors
+2024-11-18 11:19:29,423 - INFO - Initializing VAE and Mask processors
+2024-11-18 11:23:42,528 - INFO - Initializing VAE and Mask processors
+2024-11-18 16:34:02,038 - INFO - Initializing VAE and Mask processors
+2024-11-18 16:34:35,292 - INFO - Saved result to C:\Users\epdgn\Downloads\catvton\output\vitonhd-512\paired\06875_00.jpg
+2024-11-18 16:34:55,099 - INFO - Saved result to C:\Users\epdgn\Downloads\catvton\output\vitonhd-512\paired\05297_00.jpg
+2024-11-18 16:34:55,462 - INFO - Inference completed.
+2024-11-18 17:02:54,300 - INFO - Initializing VAE and Mask processors
+2024-11-18 17:03:24,816 - INFO - Saved result to C:\Users\epdgn\Downloads\catvton\output\vitonhd-512\unpaired\06875_00.jpg
+2024-11-18 17:03:43,764 - INFO - Saved result to C:\Users\epdgn\Downloads\catvton\output\vitonhd-512\unpaired\05297_00.jpg
+2024-11-18 17:03:44,162 - INFO - Inference completed.
+2024-11-18 17:19:38,141 - INFO - Initializing VAE and Mask processors
+2024-11-18 17:20:09,548 - INFO - Saved result to C:\Users\epdgn\Downloads\catvton\output\vitonhd-512\unpaired\06875_00.jpg
+2024-11-18 17:20:28,961 - INFO - Saved result to C:\Users\epdgn\Downloads\catvton\output\vitonhd-512\unpaired\05297_00.jpg
+2024-11-18 17:20:29,335 - INFO - Inference completed.
