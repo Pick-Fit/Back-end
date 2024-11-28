@@ -19,6 +19,9 @@ public class UserEntity {
     @Column(nullable = true)
     private String nickname; // 닉네임
 
+
+
+
     @Column(nullable = true, name = "phone_num")
     private String phoneNum; // 휴대폰 번호
 
