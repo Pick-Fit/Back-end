@@ -15,6 +15,7 @@ class InferenceDataset(Dataset):
         self.vae_processor = VaeImageProcessor(vae_scale_factor=8) 
         self.mask_processor = VaeImageProcessor(vae_scale_factor=8, do_normalize=False, do_binarize=True, do_convert_grayscale=True) 
         self.data = self.load_data()
+        print(f"InferenceDataset initialized with {len(self.data)} items.", flush=True)  # 로그 추가
     
     def load_data(self):
         return []
@@ -37,21 +38,25 @@ class InferenceDataset(Dataset):
 class trenbeTestDataset(InferenceDataset):
     def load_data(self):        
         pair_txt = os.path.join(self.args.data_root_path, "test",'test_pairs_paired.txt')
+        if not os.path.exists(pair_txt):  # 로그 추가
+            raise FileNotFoundError(f"Pair file not found: {pair_txt}")
+        print(f"Loading pair file: {pair_txt}", flush=True)  # 로그 추가
+        
         with open(pair_txt, 'r') as f:
-            lines = f.readlines()    
+            lines = f.readlines()
+        
         output_dir = os.path.join(self.args.output_dir, "trenbe", 'result')
         data = []
         for line in lines:
-
             person_img, cloth_img = line.strip().split(" ")
-            cloth_img = person_img
-
+            cloth_img = person_img 
             data.append({
             'person_name': person_img,
             'person': os.path.join(self.args.data_root_path, 'test', 'images', person_img),
             'cloth': os.path.join(self.args.data_root_path, 'test', 'cloth', cloth_img),
             'mask': os.path.join(self.args.data_root_path, 'test', 'agnostic_masks', person_img.replace('.jpg', '.png')),
         })
+        print(f"Loaded {len(data)} pairs from pair file.", flush=True)  # 로그 추가
         return data
                    
        
@@ -61,17 +66,13 @@ def parse_args():
         "--base_model_path",
         type=str,
         default="booksforcharlie/stable-diffusion-inpainting",  
-        help=(
-            "The path to the base model to use for evaluation. This can be a local path or a model identifier from the Model Hub."
-        ),
+        help=( "The path to the base model to use for evaluation. This can be a local path or a model identifier from the Model Hub."),
     )
     parser.add_argument(
         "--resume_path",
         type=str,
         default="zhengchong/CatVTON",
-        help=(
-            "The Path to the checkpoint of trained tryon model."
-        ),
+        help=("The Path to the checkpoint of trained tryon model."),
     )
     parser.add_argument(
         "--dataset_name",
@@ -116,19 +117,13 @@ def parse_args():
         "--width",
         type=int,
         default=384,
-        help=(
-            "The resolution for input images, all the images in the train/validation dataset will be resized to this"
-            " resolution"
-        ),
+        help=( "The resolution for input images, all the images in the train/validation dataset will be resized to this resolution"),
     )
     parser.add_argument(
         "--height",
         type=int,
         default=512,
-        help=(
-            "The resolution for input images, all the images in the train/validation dataset will be resized to this"
-            " resolution"
-        ),
+        help=( "The resolution for input images, all the images in the train/validation dataset will be resized to this resolution"),
     )
     parser.add_argument(
         "--repaint", 
@@ -139,37 +134,27 @@ def parse_args():
     parser.add_argument(
         "--concat_eval_results",
         action="store_true",
-        help="Whether or not to  concatenate the all conditions into one image.",
+        help="Whether or not to concatenate the all conditions into one image.",
     )
     parser.add_argument(
         "--allow_tf32",
         action="store_true",
         default=True,
-        help=(
-            "Whether or not to allow TF32 on Ampere GPUs. Can be used to speed up training. For more information, see"
-            " https://pytorch.org/docs/stable/notes/cuda.html#tensorfloat-32-tf32-on-ampere-devices"
-        ),
+        help=( "Whether or not to allow TF32 on Ampere GPUs. Can be used to speed up training."),
     )
     parser.add_argument(
         "--dataloader_num_workers",
         type=int,
         default=8,
-        help=(
-            "Number of subprocesses to use for data loading. 0 means that the data will be loaded in the main process."
-        ),
+        help=( "Number of subprocesses to use for data loading."),
     )
     parser.add_argument(
         "--mixed_precision",
         type=str,
         default="bf16",
         choices=["no", "fp16", "bf16"],
-        help=(
-            "Whether to use mixed precision. Choose between fp16 and bf16 (bfloat16). Bf16 requires PyTorch >="
-            " 1.10.and an Nvidia Ampere GPU.  Default to the value of accelerate config of the current system or the"
-            " flag passed with the `accelerate.launch` command. Use this argument to override the accelerate config."
-        ),
+        help=( "Whether to use mixed precision."),
     )
-
     parser.add_argument(
         "--concat_axis",
         type=str,
@@ -185,6 +170,8 @@ def parse_args():
     )
     
     args = parser.parse_args()
+    print(f"Arguments: {vars(args)}", flush=True)  # 로그 추가
+
     env_local_rank = int(os.environ.get("LOCAL_RANK", -1))
     if env_local_rank != -1 and env_local_rank != args.local_rank:
         args.local_rank = env_local_rank
@@ -199,11 +186,8 @@ def repaint(person, mask, result):
     person_np = np.array(person)
     result_np = np.array(result)
     mask_np = np.array(mask) / 255
-
-    # 추가 코드 mask_np의 차원을 확장하여 person_np, result_np와 같은 차원으로 맞춤
     mask_np = np.expand_dims(mask_np, axis=-1)  # (512, 384) -> (512, 384, 1)
     mask_np = np.repeat(mask_np, 3, axis=-1)     # (512, 384, 1) -> (512, 384, 3)
-
     repaint_result = person_np * (1 - mask_np) + result_np * mask_np
     repaint_result = Image.fromarray(repaint_result.astype(np.uint8))
     return repaint_result
@@ -215,7 +199,6 @@ def to_pil_image(images):
         images = images[None, ...]
     images = (images * 255).round().astype("uint8")
     if images.shape[-1] == 1:
-        # special case for grayscale (single channel) images
         pil_images = [Image.fromarray(image.squeeze(), mode="L") for image in images]
     else:
         pil_images = [Image.fromarray(image) for image in images]
@@ -224,9 +207,9 @@ def to_pil_image(images):
 @torch.no_grad()
 def main():
     args = parse_args()
-
+    print("Initializing CatVTONPipeline...", flush=True)  # 로그 추가
     pipeline = CatVTONPipeline(
-        attn_ckpt_version='vitonhd',
+        attn_ckpt_version='mix',
         attn_ckpt=args.resume_path,
         base_ckpt=args.base_model_path,
         weight_dtype={
@@ -237,12 +220,13 @@ def main():
         device="cuda",
         skip_safety_check=True
     )
-    # Dataset
+    print("CatVTONPipeline initialized successfully.", flush=True)  # 로그 추가
+
     if args.dataset_name == "trenbe":
         dataset = trenbeTestDataset(args)
     else:
         raise ValueError(f"Invalid dataset name {args.dataset}.")
-    # Dataset 확인: 데이터셋이 비어 있는지 확인
+    
     if len(dataset) == 0:
         raise ValueError("Dataset is empty. Please check data loading.")
     dataloader = DataLoader(
@@ -251,12 +235,12 @@ def main():
         shuffle=False,
         num_workers=args.dataloader_num_workers
     )
-    # DataLoader로부터 배치가 제대로 로드되는지 확인
+
     for batch in dataloader:
-        print(f"Batch loaded: {batch.keys()}", flush=True)
+        print(f"Batch loaded: {batch.keys()}", flush=True)  # 로그 추가
         if len(batch) == 0:
             print("Error: Batch is empty.", flush=True)
-    # Inference
+
     generator = torch.Generator(device='cuda').manual_seed(args.seed)
     args.output_dir = os.path.join(args.output_dir, f"{args.dataset_name}-{args.height}", "result")
     for batch in tqdm(dataloader):
@@ -264,7 +248,7 @@ def main():
         cloth_images = batch['cloth'].to('cuda')
         masks = batch['mask'].to('cuda')
 
-        # 로깅 추가 - 인퍼런스 시작
+        print(f"Running inference for batch...", flush=True)  # 로그 추가
         results = pipeline(
             person_images,
             cloth_images,
@@ -284,6 +268,7 @@ def main():
             output_path = os.path.join(args.output_dir, person_name)
             if not os.path.exists(os.path.dirname(output_path)):
                 os.makedirs(os.path.dirname(output_path))
+            print(f"Saving result for {person_name}...", flush=True)  # 로그 추가
             if args.repaint:                
                 person_path, mask_path = dataset.data[batch['index'][i]]['person'], dataset.data[batch['index'][i]]['mask']
                 person_image= Image.open(person_path).resize(result.size, Image.LANCZOS)
