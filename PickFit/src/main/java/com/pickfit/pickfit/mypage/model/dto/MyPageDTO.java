@@ -1,6 +1,6 @@
 package com.pickfit.pickfit.mypage.model.dto;
 
-public class MypageDTO {
+public class MyPageDTO {
 
     private String email;
     private String nickname;
@@ -9,9 +9,9 @@ public class MypageDTO {
     private String address;
     private String role;
 
-    public MypageDTO() {}
+    public MyPageDTO() {}
 
-    public MypageDTO(String email, String nickname, String userName, String phoneNum, String address, String role) {
+    public MyPageDTO(String email, String nickname, String userName, String phoneNum, String address, String role) {
         this.email = email;
         this.nickname = nickname;
         this.userName = userName;
@@ -56,7 +56,7 @@ public class MypageDTO {
 
     @Override
     public String toString() {
-        return "MypageDTO{" +
+        return "MyPageDTO{" +
                 "email='" + email + '\'' +
                 ", nickname='" + nickname + '\'' +
                 ", userName='" + userName + '\'' +
