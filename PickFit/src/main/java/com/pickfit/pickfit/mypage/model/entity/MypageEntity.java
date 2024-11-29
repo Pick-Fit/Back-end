@@ -10,7 +10,7 @@ public class MypageEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-//    @Column(name = "MyPage_email")
+   @Column(name = "MyPage_email")
     private String email;
     private String nickname;
     private String userName;
@@ -27,5 +27,74 @@ public class MypageEntity {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.role = role;
+    }
+
+    public java.lang.Integer getId() {
+        return id;
+    }
+
+    public void setId(java.lang.Integer id) {
+        this.id = id;
+    }
+
+    public java.lang.String getEmail() {
+        return email;
+    }
+
+    public void setEmail(java.lang.String email) {
+        this.email = email;
+    }
+
+    public java.lang.String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(java.lang.String nickname) {
+        this.nickname = nickname;
+    }
+
+    public java.lang.String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(java.lang.String userName) {
+        this.userName = userName;
+    }
+
+    public java.lang.String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(java.lang.String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public java.lang.String getAddress() {
+        return address;
+    }
+
+    public void setAddress(java.lang.String address) {
+        this.address = address;
+    }
+
+    public java.lang.String getRole() {
+        return role;
+    }
+
+    public void setRole(java.lang.String role) {
+        this.role = role;
+    }
+
+    @java.lang.Override
+    public java.lang.String toString() {
+        return "MypageEntity{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", userName='" + userName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", address='" + address + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
 }

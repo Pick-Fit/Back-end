@@ -69,7 +69,6 @@ public class UserController {
         return new UserDTO(
                 user.getEmail(),
                 user.getName(),
-                user.getNickname(),
                 user.getPhoneNum()
         );
     }
@@ -79,11 +78,10 @@ public class UserController {
     // 사용자의 닉네임과 전화번호 업데이트
     @PutMapping("/user")
     public UserDTO updateUserDetails(
-            @RequestParam String nickname,
             @RequestParam String phoneNum,
             Authentication authentication) {
 
-        logger.info("PUT /api/user - 요청 수신: nickname={}, phoneNum={}", nickname, phoneNum);
+        logger.info("PUT /api/user - 요청 수신: nickname={}, phoneNum={}", phoneNum);
 
         if (authentication == null) {
             logger.warn("PUT /api/user - 인증되지 않은 요청");
@@ -98,13 +96,12 @@ public class UserController {
         String email = (String) authentication.getPrincipal();
         logger.info("PUT /api/user - 인증된 사용자: email={}", email);
 
-        UserEntity updatedUser = userService.updateUserDetails(email, nickname, phoneNum);
+        UserEntity updatedUser = userService.updateUserDetails(email, phoneNum);
         logger.info("PUT /api/user - 사용자 데이터 업데이트 완료: {}", updatedUser);
 
         return new UserDTO(
                 updatedUser.getEmail(),
                 updatedUser.getName(),
-                updatedUser.getNickname(),
                 updatedUser.getPhoneNum()
         );
     }

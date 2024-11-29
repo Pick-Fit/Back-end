@@ -16,9 +16,6 @@ public class UserEntity {
     @Column(nullable = false)
     private String name; // 로그인 이름
 
-    @Column(nullable = true)
-    private String nickname; // 닉네임
-
     @Column(nullable = true, name = "phone_num")
     private String phoneNum; // 휴대폰 번호
 
@@ -39,14 +36,6 @@ public class UserEntity {
         this.name = name;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
     public String getPhoneNum() {
         return phoneNum;
     }
@@ -60,7 +49,6 @@ public class UserEntity {
         return "UserEntity{" +
                 "email='" + email + '\'' +
                 ", name='" + name + '\'' +
-                ", nickname='" + nickname + '\'' +
                 ", phoneNum='" + phoneNum + '\'' +
                 '}';
     }
