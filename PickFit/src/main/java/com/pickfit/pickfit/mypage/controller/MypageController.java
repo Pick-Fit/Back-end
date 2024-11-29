@@ -4,19 +4,21 @@ import com.pickfit.pickfit.mypage.model.dto.MyPageDTO;
 import com.pickfit.pickfit.mypage.service.MyPageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api")
 public class MyPageController {
 
     @Autowired
     private MyPageService myPageService;
 
-    @PostMapping("/create")
+    @PostMapping("/update")
     public String createUser(@RequestBody MyPageDTO myPageDTO) {
         myPageService.createMyPage( myPageDTO );
         return "success";
