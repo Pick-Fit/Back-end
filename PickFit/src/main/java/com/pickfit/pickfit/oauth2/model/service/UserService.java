@@ -25,18 +25,16 @@ public class UserService {
             UserEntity newUser = new UserEntity();
             newUser.setEmail(userDTO.getEmail());
             newUser.setName(userDTO.getName());
-            newUser.setNickname(null);
             newUser.setPhoneNum(null);
             return repository.save(newUser);
         }
     }
 
-    public UserEntity updateUserDetails(String email, String nickname, String phoneNum) {
+    public UserEntity updateUserDetails(String email, String phoneNum) {
         Optional<UserEntity> existingUser = repository.findById(email);
 
         if (existingUser.isPresent()) {
             UserEntity user = existingUser.get();
-            user.setNickname(nickname);
             user.setPhoneNum(phoneNum);
             return repository.save(user);
         } else {

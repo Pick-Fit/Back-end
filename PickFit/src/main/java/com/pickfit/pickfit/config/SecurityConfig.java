@@ -26,12 +26,14 @@ public class SecurityConfig implements WebMvcConfigurer {
                 .csrf().disable()
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // OPTIONS 요청 허용
+                        .requestMatchers("/api/*").permitAll() // 인증 없이 허용
                         .requestMatchers("/", "/login", "/oauth2/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .oauth2Login(oauth2 -> oauth2
                         .successHandler(successHandler)
                 );
+
         return http.build();
     }
 
