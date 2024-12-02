@@ -16,13 +16,12 @@ public class UserEntity {
     @Column(nullable = false)
     private String name; // 로그인 이름
 
-    @Column(nullable = true)
-    private String nickname; // 닉네임
-
     @Column(nullable = true, name = "phone_num")
     private String phoneNum; // 휴대폰 번호
 
-    // Getters and Setters
+    @Column(nullable = true)
+    private String profile;
+
     public String getEmail() {
         return email;
     }
@@ -39,14 +38,6 @@ public class UserEntity {
         this.name = name;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
     public String getPhoneNum() {
         return phoneNum;
     }
@@ -55,13 +46,21 @@ public class UserEntity {
         this.phoneNum = phoneNum;
     }
 
+    public String getProfile() {
+        return profile;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
+    }
+
     @Override
     public String toString() {
         return "UserEntity{" +
                 "email='" + email + '\'' +
                 ", name='" + name + '\'' +
-                ", nickname='" + nickname + '\'' +
                 ", phoneNum='" + phoneNum + '\'' +
+                ", profile='" + profile + '\'' +
                 '}';
     }
 }

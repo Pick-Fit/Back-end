@@ -74,7 +74,6 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
             log.info("email={}, name={}, nickname={}, accessToken={}",
                     principal.getUserInfo().getEmail(),
                     principal.getUserInfo().getName(),
-                    principal.getUserInfo().getNickname(),
                     principal.getUserInfo().getAccessToken()
             );
 
