@@ -11,7 +11,6 @@ public class GoogleOAuth2UserInfo implements OAuth2UserInfo {
     private final String name;
     private final String firstName;
     private final String lastName;
-    private final String nickName;
     private final String profileImageUrl;
 
     public GoogleOAuth2UserInfo(String accessToken, Map<String, Object> attributes) {
@@ -22,7 +21,6 @@ public class GoogleOAuth2UserInfo implements OAuth2UserInfo {
         this.name = (String) attributes.get("name");
         this.firstName = (String) attributes.get("given_name");
         this.lastName = (String) attributes.get("family_name");
-        this.nickName = null;
         this.profileImageUrl = (String) attributes.get("picture");
 
         System.out.println("GoogleOAuth2UserInfo initialized with attributes: " + attributes);
@@ -69,11 +67,6 @@ public class GoogleOAuth2UserInfo implements OAuth2UserInfo {
     @Override
     public String getLastName() {
         return lastName;
-    }
-
-    @Override
-    public String getNickname() {
-        return nickName;
     }
 
     @Override

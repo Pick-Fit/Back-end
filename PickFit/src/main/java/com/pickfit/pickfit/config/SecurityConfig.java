@@ -21,13 +21,14 @@ public class SecurityConfig implements WebMvcConfigurer {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .cors() // CORS 설정 추가
+                .cors() // CORS 설정 활성화
                 .and()
-                .csrf().disable()
+                .csrf().disable() // CSRF 비활성화 (REST API 환경에서 적합)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // OPTIONS 요청 허용
-                        .requestMatchers("/", "/login", "/oauth2/**").permitAll()
-                        .anyRequest().authenticated()
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // OPTIONS 요청 허용 (CORS preflight 요청)
+                        .requestMatchers("/", "/login", "/oauth2/**").permitAll() // 로그인 관련 엔드포인트 허용
+                        .requestMatchers("/api/**").permitAll() // 위시리스트 API 인증 없이 허용
+                        .anyRequest().authenticated() // 그 외 모든 요청 인증 필요
                 )
                 .oauth2Login(oauth2 -> oauth2
                         .successHandler(successHandler)
@@ -38,15 +39,9 @@ public class SecurityConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:3000")
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedHeaders("*")
+                .allowedOrigins("http://localhost:3000") // Frontend 도메인 허용
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // 허용할 HTTP 메서드
+                .allowedHeaders("*") // 모든 헤더 허용
                 .allowCredentials(true); // 쿠키 및 인증 정보 허용
     }
-
-
-
-
 }
-
-

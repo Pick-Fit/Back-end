@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Back-end.iml" filepath="$PROJECT_DIR$/.idea/Back-end.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PickFit.iml" filepath="$PROJECT_DIR$/.idea/modules/PickFit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PickFit.main.iml" filepath="$PROJECT_DIR$/.idea/modules/PickFit.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PickFit.test.iml" filepath="$PROJECT_DIR$/.idea/modules/PickFit.test.iml" />
     </modules>
   </component>
 </project>

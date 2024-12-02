@@ -6,22 +6,27 @@ public class UserDTO {
     private String name;  // 사용자 이름
     private String phoneNum; // 폰 번호
 
+
+    public UserDTO() {
+
+    }
+
+    public UserDTO(String email, String name) {
+        this.email = email;
+        this.name = name;
+    }
+
     public UserDTO(String email, String name, String phoneNum) {
         this.email = email;
         this.name = name;
         this.phoneNum = phoneNum;
     }
 
-    public UserDTO(String email, String name) {
-        this.email = email;
-        this.name = name;
-        this.phoneNum = null;
-    }
 
     // Getters and Setters
     public String getEmail() {
         return email;
-}
+    }
 
     public void setEmail(String email) {
         this.email = email;
