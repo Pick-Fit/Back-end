@@ -69,8 +69,8 @@ public class UserController {
         return new UserDTO(
                 user.getEmail(),
                 user.getName(),
-                user.getNickname(),
-                user.getPhoneNum()
+                user.getPhoneNum(),
+                user.getProfile()
         );
     }
 
@@ -98,14 +98,14 @@ public class UserController {
         String email = (String) authentication.getPrincipal();
         logger.info("PUT /api/user - 인증된 사용자: email={}", email);
 
-        UserEntity updatedUser = userService.updateUserDetails(email, nickname, phoneNum);
+        UserEntity updatedUser = userService.updateUserDetails(email, phoneNum);
         logger.info("PUT /api/user - 사용자 데이터 업데이트 완료: {}", updatedUser);
 
         return new UserDTO(
                 updatedUser.getEmail(),
                 updatedUser.getName(),
-                updatedUser.getNickname(),
-                updatedUser.getPhoneNum()
+                updatedUser.getPhoneNum(),
+                updatedUser.getProfile()
         );
     }
 
@@ -123,5 +123,27 @@ public class UserController {
 
         // 간단한 성공 응답 반환
         return ResponseEntity.ok("Logged out successfully");
+    }
+
+    @PostMapping("/update")
+    public ResponseEntity<UserDTO> updateUserPhoneNumber(@RequestBody UserDTO userDTO) {
+        logger.info("POST /api/update - 요청 수신: email={}, phoneNum={}", userDTO.getEmail(), userDTO.getPhoneNum());
+
+        try {
+            // 서비스 로직 호출
+            UserEntity updatedUser = userService.updateUserDetails(userDTO.getEmail(), userDTO.getPhoneNum());
+            logger.info("POST /api/update - 사용자 데이터 업데이트 완료: {}", updatedUser);
+
+            // 업데이트된 사용자 정보 반환
+            return ResponseEntity.ok(new UserDTO(
+                    updatedUser.getEmail(),
+                    updatedUser.getName(),
+                    updatedUser.getPhoneNum(),
+                    updatedUser.getProfile()
+            ));
+        } catch (IllegalArgumentException e) {
+            logger.error("POST /api/update - 에러 발생: {}", e.getMessage());
+            return ResponseEntity.badRequest().body(null);
+        }
     }
 }
