@@ -9,7 +9,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -64,13 +63,14 @@ public class UserController {
             throw new RuntimeException("Unauthorized");
         }
 
-        UserEntity user = userService.handleOAuth2Login(new UserDTO(email, name, null));
+        UserEntity user = userService.handleOAuth2Login(new UserDTO(email, name, null, null));
         logger.info("GET /api/user - 사용자 데이터 반환: {}", user);
 
         return new UserDTO(
                 user.getEmail(),
                 user.getName(),
-                user.getPhoneNum()
+                user.getPhoneNum(),
+                user.getProfile()
         );
     }
 
@@ -104,7 +104,8 @@ public class UserController {
         return new UserDTO(
                 updatedUser.getEmail(),
                 updatedUser.getName(),
-                updatedUser.getPhoneNum()
+                updatedUser.getPhoneNum(),
+                updatedUser.getProfile()
         );
     }
 
@@ -125,16 +126,24 @@ public class UserController {
     }
 
     @PostMapping("/update")
-    public ResponseEntity<String> updateUserDetails(@RequestBody UserDTO userDTO) {
-        logger.info("POST /api/update 요청 수신: email={}, phoneNum={}", userDTO.getEmail(), userDTO.getPhoneNum());
+    public ResponseEntity<UserDTO> updateUserPhoneNumber(@RequestBody UserDTO userDTO) {
+        logger.info("POST /api/update - 요청 수신: email={}, phoneNum={}", userDTO.getEmail(), userDTO.getPhoneNum());
 
         try {
-            // 서비스 호출로 연락처 업데이트
-            userService.updateUserDetails(userDTO.getEmail(), userDTO.getPhoneNum());
-            return ResponseEntity.ok("연락처가 성공적으로 업데이트되었습니다.");
+            // 서비스 로직 호출
+            UserEntity updatedUser = userService.updateUserDetails(userDTO.getEmail(), userDTO.getPhoneNum());
+            logger.info("POST /api/update - 사용자 데이터 업데이트 완료: {}", updatedUser);
+
+            // 업데이트된 사용자 정보 반환
+            return ResponseEntity.ok(new UserDTO(
+                    updatedUser.getEmail(),
+                    updatedUser.getName(),
+                    updatedUser.getPhoneNum(),
+                    updatedUser.getProfile()
+            ));
         } catch (IllegalArgumentException e) {
-            logger.error("사용자 업데이트 실패: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+            logger.error("POST /api/update - 에러 발생: {}", e.getMessage());
+            return ResponseEntity.badRequest().body(null);
         }
     }
 }

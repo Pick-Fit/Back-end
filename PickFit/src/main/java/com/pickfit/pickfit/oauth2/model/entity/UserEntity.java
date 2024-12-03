@@ -19,7 +19,9 @@ public class UserEntity {
     @Column(nullable = true, name = "phone_num")
     private String phoneNum; // 휴대폰 번호
 
-    // Getters and Setters
+    @Column(nullable = true)
+    private String profile;
+
     public String getEmail() {
         return email;
     }
@@ -44,12 +46,21 @@ public class UserEntity {
         this.phoneNum = phoneNum;
     }
 
+    public String getProfile() {
+        return profile;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
+    }
+
     @Override
     public String toString() {
         return "UserEntity{" +
                 "email='" + email + '\'' +
                 ", name='" + name + '\'' +
                 ", phoneNum='" + phoneNum + '\'' +
+                ", profile='" + profile + '\'' +
                 '}';
     }
 }
