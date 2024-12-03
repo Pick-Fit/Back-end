@@ -22,6 +22,28 @@ public class UserEntity {
     @Column(nullable = true)
     private String profile;
 
+    @Column(nullable = true)
+    private String address;
+
+    @Column(nullable = true)
+    private String nickname;
+
+    @Column(nullable = true)
+    private String role = "USER"; // 기본값 설정
+
+    public UserEntity() {
+    }
+
+    public UserEntity(String email, String name, String phoneNum, String profile, String address, String nickname, String role) {
+        this.email = email;
+        this.name = name;
+        this.phoneNum = phoneNum;
+        this.profile = profile;
+        this.address = address;
+        this.nickname = nickname;
+        this.role = role;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -54,6 +76,30 @@ public class UserEntity {
         this.profile = profile;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     @Override
     public String toString() {
         return "UserEntity{" +
@@ -61,6 +107,9 @@ public class UserEntity {
                 ", name='" + name + '\'' +
                 ", phoneNum='" + phoneNum + '\'' +
                 ", profile='" + profile + '\'' +
+                ", address='" + address + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
 }

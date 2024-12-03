@@ -6,22 +6,26 @@ public class UserDTO {
     private String name;  // 사용자 이름
     private String phoneNum; // 폰 번호
     private String profile;
+    private String address;
+    private String nickname;
+    private String role;
 
     public UserDTO() {
     }
 
-    public UserDTO(String email, String name, String phoneNum, String profile) {
+    public UserDTO(String email, String name, String phoneNum, String profile, String address, String nickname, String role) {
         this.email = email;
         this.name = name;
         this.phoneNum = phoneNum;
         this.profile = profile;
+        this.address = address;
+        this.nickname = nickname;
+        this.role = role;
     }
 
     public UserDTO(String email, String name) {
         this.email = email;
         this.name = name;
-        this.phoneNum = null;
-        this.profile = null;
     }
 
     public String getEmail() {
@@ -56,13 +60,40 @@ public class UserDTO {
         this.profile = profile;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     @Override
     public String toString() {
         return "UserDTO{" +
-                "profile='" + profile + '\'' +
-                ", phoneNum='" + phoneNum + '\'' +
+                "email='" + email + '\'' +
                 ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
+                ", phoneNum='" + phoneNum + '\'' +
+                ", profile='" + profile + '\'' +
+                ", address='" + address + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
 }
