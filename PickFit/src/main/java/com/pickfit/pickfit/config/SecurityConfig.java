@@ -25,14 +25,15 @@ public class SecurityConfig implements WebMvcConfigurer {
                 .and()
                 .csrf().disable() // CSRF 비활성화 (REST API 환경에서 적합)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // OPTIONS 요청 허용 (CORS preflight 요청)
-                        .requestMatchers("/", "/login", "/oauth2/**").permitAll() // 로그인 관련 엔드포인트 허용
-                        .requestMatchers("/api/**").permitAll() // 위시리스트 API 인증 없이 허용
-                        .anyRequest().authenticated() // 그 외 모든 요청 인증 필요
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // OPTIONS 요청 허용
+                        .requestMatchers("/api/*").permitAll() // 인증 없이 허용
+                        .requestMatchers("/", "/login", "/oauth2/**").permitAll()
+                        .anyRequest().authenticated()
                 )
                 .oauth2Login(oauth2 -> oauth2
                         .successHandler(successHandler)
                 );
+
         return http.build();
     }
 
