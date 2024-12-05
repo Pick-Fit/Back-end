@@ -5,11 +5,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
+@EnableWebSecurity
 public class SecurityConfig implements WebMvcConfigurer {
 
     private final OAuth2AuthenticationSuccessHandler successHandler;
@@ -26,7 +28,7 @@ public class SecurityConfig implements WebMvcConfigurer {
                 .csrf().disable()
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // OPTIONS 요청 허용
-                        .requestMatchers("/api/*").permitAll() // 인증 없이 허용
+                        .requestMatchers("/api/**").permitAll() // 인증 없이 허용
                         .requestMatchers("/", "/login", "/oauth2/**").permitAll()
                         .anyRequest().authenticated()
                 )
