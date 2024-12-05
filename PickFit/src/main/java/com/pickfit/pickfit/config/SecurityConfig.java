@@ -21,17 +21,16 @@ public class SecurityConfig implements WebMvcConfigurer {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .cors() // CORS 설정 추가
+                .cors() // CORS 설정 활성화
                 .and()
-                .csrf().disable()
+                .csrf().disable() // CSRF 보호 비활성화 (FastAPI와의 통신 테스트를 위해 비활성화)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // OPTIONS 요청 허용
-                        .requestMatchers("/api/*").permitAll() // 인증 없이 허용
-                        .requestMatchers("/", "/login", "/oauth2/**").permitAll()
-                        .anyRequest().authenticated()
+                        .requestMatchers("/api/**").permitAll() // `/api/**` 경로는 모두 인증 없이 접근 가능
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // OPTIONS 요청 허용 (CORS 사전 요청)
+                        .anyRequest().permitAll() // 모든 요청 인증 없이 허용
                 )
                 .oauth2Login(oauth2 -> oauth2
-                        .successHandler(successHandler)
+                        .successHandler(successHandler) // OAuth2 로그인 성공 핸들러 설정
                 );
 
         return http.build();
@@ -39,16 +38,10 @@ public class SecurityConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedOrigins("http://localhost:3000")
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedHeaders("*")
+        registry.addMapping("/**") // 모든 경로에 대해 CORS 허용
+                .allowedOrigins("http://localhost:3000", "http://localhost:5000") // React, FastAPI 허용
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // 허용할 HTTP 메서드
+                .allowedHeaders("*") // 모든 헤더 허용
                 .allowCredentials(true); // 쿠키 및 인증 정보 허용
     }
-
-
-
-
 }
-
-
