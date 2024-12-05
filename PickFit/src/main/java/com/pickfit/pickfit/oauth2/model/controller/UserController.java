@@ -63,14 +63,17 @@ public class UserController {
             throw new RuntimeException("Unauthorized");
         }
 
-        UserEntity user = userService.handleOAuth2Login(new UserDTO(email, name, null, null));
+        UserEntity user = userService.handleOAuth2Login(new UserDTO(email, name, null, null,null, null, null));
         logger.info("GET /api/user - 사용자 데이터 반환: {}", user);
 
         return new UserDTO(
                 user.getEmail(),
                 user.getName(),
+                user.getPhoneNum(),
+                user.getProfile(),
+                user.getAddress(),
                 user.getNickname(),
-                user.getPhoneNum()
+                user.getRole()
         );
     }
 
@@ -79,11 +82,10 @@ public class UserController {
     // 사용자의 닉네임과 전화번호 업데이트
     @PutMapping("/user")
     public UserDTO updateUserDetails(
-            @RequestParam String nickname,
-            @RequestParam String phoneNum,
+            @RequestBody UserDTO userDTO,
             Authentication authentication) {
 
-        logger.info("PUT /api/user - 요청 수신: nickname={}, phoneNum={}", nickname, phoneNum);
+        logger.info("PUT /api/user - 요청 수신: {}", userDTO);
 
         if (authentication == null) {
             logger.warn("PUT /api/user - 인증되지 않은 요청");
@@ -98,14 +100,17 @@ public class UserController {
         String email = (String) authentication.getPrincipal();
         logger.info("PUT /api/user - 인증된 사용자: email={}", email);
 
-        UserEntity updatedUser = userService.updateUserDetails(email, nickname, phoneNum);
+        UserEntity updatedUser = userService.updateUserDetails(userDTO);
         logger.info("PUT /api/user - 사용자 데이터 업데이트 완료: {}", updatedUser);
 
         return new UserDTO(
                 updatedUser.getEmail(),
                 updatedUser.getName(),
+                updatedUser.getPhoneNum(),
+                updatedUser.getProfile(),
+                updatedUser.getAddress(),
                 updatedUser.getNickname(),
-                updatedUser.getPhoneNum()
+                updatedUser.getRole()
         );
     }
 
@@ -124,4 +129,32 @@ public class UserController {
         // 간단한 성공 응답 반환
         return ResponseEntity.ok("Logged out successfully");
     }
+
+    @PostMapping("/update")
+    public ResponseEntity<UserDTO> updateUserPhoneNumber(@RequestBody UserDTO userDTO) {
+        logger.info("POST /api/update - 요청 수신: email={}, phoneNum={}", userDTO.getEmail(), userDTO.getPhoneNum());
+
+        try {
+            // 서비스 로직 호출
+            UserEntity updatedUser = userService.updateUserDetails(userDTO);
+            logger.info("POST /api/update - 사용자 데이터 업데이트 완료: {}", updatedUser);
+
+            // 업데이트된 사용자 정보 반환
+            return ResponseEntity.ok(new UserDTO(
+                    updatedUser.getEmail(),
+                    updatedUser.getName(),
+                    updatedUser.getPhoneNum(),
+                    updatedUser.getProfile(),
+                    updatedUser.getAddress(),
+                    updatedUser.getNickname(),
+                    updatedUser.getRole()
+
+            ));
+        } catch (IllegalArgumentException e) {
+            logger.error("POST /api/update - 에러 발생: {}", e.getMessage());
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
+
 }
+

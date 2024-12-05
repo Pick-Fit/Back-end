@@ -72,11 +72,6 @@ public class GoogleOAuth2UserInfo implements OAuth2UserInfo {
     }
 
     @Override
-    public String getNickname() {
-        return nickName;
-    }
-
-    @Override
     public String getProfileImageUrl() {
         return profileImageUrl;
     }

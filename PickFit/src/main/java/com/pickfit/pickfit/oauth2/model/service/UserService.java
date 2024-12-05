@@ -25,22 +25,32 @@ public class UserService {
             UserEntity newUser = new UserEntity();
             newUser.setEmail(userDTO.getEmail());
             newUser.setName(userDTO.getName());
-            newUser.setNickname(null);
-            newUser.setPhoneNum(null);
+            newUser.setRole("USER");
             return repository.save(newUser);
         }
     }
 
-    public UserEntity updateUserDetails(String email, String nickname, String phoneNum) {
-        Optional<UserEntity> existingUser = repository.findById(email);
+    public UserEntity updateUserDetails(UserDTO userDTO) {
+        Optional<UserEntity> existingUser = repository.findById(userDTO.getEmail());
 
         if (existingUser.isPresent()) {
             UserEntity user = existingUser.get();
-            user.setNickname(nickname);
-            user.setPhoneNum(phoneNum);
+
+            if (userDTO.getPhoneNum() != null) {
+                user.setPhoneNum(userDTO.getPhoneNum());
+            }
+            if (userDTO.getAddress() != null) {
+                user.setAddress(userDTO.getAddress());
+            }
+            if (userDTO.getNickname() != null) {
+                user.setNickname(userDTO.getNickname());
+            }
+            if (userDTO.getProfile() != null) {
+                user.setProfile(userDTO.getProfile());
+            }
             return repository.save(user);
         } else {
-            throw new IllegalArgumentException("User not found with email: " + email);
+            throw new IllegalArgumentException("User not found with email: " + userDTO.getEmail());
         }
     }
 }
