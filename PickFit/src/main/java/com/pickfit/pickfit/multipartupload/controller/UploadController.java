@@ -1,13 +1,11 @@
 package com.pickfit.pickfit.multipartupload.controller;
 
-import com.pickfit.pickfit.multipartupload.dto.UploadDTO;
+import org.springframework.web.multipart.MultipartFile;
 import com.pickfit.pickfit.multipartupload.service.UploadService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -21,28 +19,13 @@ public class UploadController {
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<String> initiateUpload(@RequestBody UploadDTO uploadDTO) {
-        logger.info("Received POST /api/initiate request with fileName: {}", uploadDTO.getFileName());
-        // 업로드 시작 요청 처리
-        String uploadId = uploadService.initiateMultipartUpload(uploadDTO.getFileName());
-        logger.info("Generated Upload ID: {}", uploadId);
-        return ResponseEntity.ok(uploadId);
-    }
+    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file, @RequestParam("email") String userEmail) {
+        logger.info("파일 업로드 요청/ 파일이름: {}", file.getOriginalFilename());
 
-    @GetMapping("/url")
-    public ResponseEntity<List<String>> getPresignedUrls(
-            @RequestParam String uploadId,
-            @RequestParam String fileName,
-            @RequestParam int partCount) {
-        // Presigned URL 요청 처리
-        List<String> urls = uploadService.generatePresignedUrls(uploadId, fileName, partCount);
-        return ResponseEntity.ok(urls);
-    }
+        // 파일 업로드 서비스 호출
+        String fileUrl = uploadService.uploadFile(userEmail,file);
 
-    @PostMapping("/complete")
-    public ResponseEntity<String> completeUpload(@RequestBody UploadDTO.CompleteRequest completeRequest) {
-        // 멀티파트 업로드 완료 처리
-        String fileUrl = uploadService.completeMultipartUpload(completeRequest);
+        logger.info("파일업로드 성공 및 DB저장/ URL: {}", fileUrl);
         return ResponseEntity.ok(fileUrl);
     }
 }

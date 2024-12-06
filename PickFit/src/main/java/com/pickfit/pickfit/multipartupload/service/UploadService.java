@@ -1,67 +1,50 @@
 package com.pickfit.pickfit.multipartupload.service;
 
-import com.amazonaws.HttpMethod;
 import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.model.*;
-import com.pickfit.pickfit.multipartupload.dto.UploadDTO;
+import com.pickfit.pickfit.multipartupload.entity.UploadEntity;
+import org.springframework.web.multipart.MultipartFile;
+import com.pickfit.pickfit.multipartupload.repository.UploadRepository;
 import org.springframework.stereotype.Service;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import com.amazonaws.services.s3.model.ObjectMetadata;
 
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import com.amazonaws.services.s3.model.PutObjectRequest;
 
 @Service
 public class UploadService {
 
-    private static final Logger logger = LoggerFactory.getLogger(UploadService.class);
-
     private final AmazonS3 amazonS3;
-    private final String bucketName = "pickfit";
+    private final String bucketName = "pickfit"; // 버킷 이름 설정
+    private final UploadRepository uploadRepository;
 
-    public UploadService(AmazonS3 amazonS3) {
+    public UploadService(AmazonS3 amazonS3, UploadRepository uploadRepository) {
         this.amazonS3 = amazonS3;
+        this.uploadRepository = uploadRepository;
     }
 
-    public String initiateMultipartUpload(String fileName) {
-        // AWS S3 멀티파트 업로드 초기화
-        InitiateMultipartUploadRequest request = new InitiateMultipartUploadRequest(bucketName, fileName);
-        InitiateMultipartUploadResult result = amazonS3.initiateMultipartUpload(request);
-        logger.info("1단계 id 발급 -----------------------------------------Multipart upload initiated. UploadId: {}", result.getUploadId());
-        return result.getUploadId();
-    }
+    public String uploadFile(String userEmail, MultipartFile file) {
+        try {
+            String keyName = "userimages/" + file.getOriginalFilename(); // 파일을 S3에 저장할 경로 지정
 
-    public List<String> generatePresignedUrls(String uploadId, String fileName, int partCount) {
-        logger.info("Generating presigned URLs for UploadId: {}, FileName: {}, PartCount: {}", uploadId, fileName, partCount);
-        List<String> presignedUrls = new ArrayList<>();
-        for (int partNumber = 1; partNumber <= partCount; partNumber++) {
-            GeneratePresignedUrlRequest presignedUrlRequest = new GeneratePresignedUrlRequest(bucketName, fileName)
-                    .withMethod(HttpMethod.PUT) // HTTP 메서드 지정
-                    .withExpiration(new Date(System.currentTimeMillis() + 3600000));// URL 유효 기간 설정
+            // 파일 메타데이터 설정
+            ObjectMetadata metadata = new ObjectMetadata();
+            metadata.setContentLength(file.getSize());
+            metadata.setContentType(file.getContentType());
 
-            presignedUrlRequest.addRequestParameter("Content-Type", "image/jpeg");
-            URL presignedUrl = amazonS3.generatePresignedUrl(presignedUrlRequest);
-            presignedUrls.add(presignedUrl.toString());
+            // S3에 파일 업로드
+            amazonS3.putObject(new PutObjectRequest(bucketName, keyName, file.getInputStream(), null));
+
+            String fileUrl = amazonS3.getUrl(bucketName, keyName).toString();
+
+            // 이미지 정보 DB에 저장
+            UploadEntity uploadEntity = new UploadEntity(userEmail, file.getOriginalFilename(), fileUrl, LocalDateTime.now());
+            uploadRepository.save(uploadEntity); // 여기서 데이터베이스에 저장
+
+            return fileUrl; // 업로드된 파일의 URL 반환
+
+        } catch (IOException e) {
+            throw new RuntimeException("파일 업로드 중 오류가 발생했습니다.", e);
         }
-        return presignedUrls;
     }
-
-    public String completeMultipartUpload(UploadDTO.CompleteRequest completeRequest) {
-        logger.info("Completing multipart upload for UploadId: {}, FileName: {}", completeRequest.getUploadId(), completeRequest.getFileName());
-        // AWS SDK의 CompleteMultipartUploadRequest 생성자에 적합한 데이터 전달
-        CompleteMultipartUploadRequest request = new CompleteMultipartUploadRequest(
-                bucketName,                      // S3 버킷 이름
-                completeRequest.getFileName(),   // S3 객체 키 (파일 이름)
-                completeRequest.getUploadId(),  // 업로드 ID
-                completeRequest.getParts()      // PartETag 리스트
-        );
-
-        // S3에 멀티파트 업로드 완료 요청
-        CompleteMultipartUploadResult result = amazonS3.completeMultipartUpload(request);
-        logger.info("Multipart upload completed. File URL: {}", result.getLocation());
-        return result.getLocation(); // 업로드된 파일의 URL 반환
-    }
-
 }
