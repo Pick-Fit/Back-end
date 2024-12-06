@@ -37,6 +37,7 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication) throws IOException {
+        log.info("OAuth2 인증 성공: Authentication={}", authentication);
         String targetUrl = determineTargetUrl(request, response, authentication);
 
         if (response.isCommitted()) {
@@ -59,6 +60,10 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
                 .map(Cookie::getValue)
                 .orElse("");
 
+        log.info("OAuth2 determineTargetUrl 실행: redirectUri={}, mode={}",
+                redirectUri.orElse("기본 URL 사용"),
+                CookieUtils.getCookie(request, MODE_PARAM_COOKIE_NAME).map(Cookie::getValue).orElse(""));
+
         OAuth2UserPrincipal principal = getOAuth2UserPrincipal(authentication);
 
 
@@ -71,7 +76,7 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         }
 
         if ("login".equalsIgnoreCase(mode)) {
-            log.info("email={}, name={}, nickname={}, accessToken={}",
+            log.info("email={}, name={}, accessToken={}",
                     principal.getUserInfo().getEmail(),
                     principal.getUserInfo().getName(),
                     principal.getUserInfo().getAccessToken()
@@ -111,8 +116,10 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         Object principal = authentication.getPrincipal();
 
         if (principal instanceof OAuth2UserPrincipal) {
+            log.info("OAuth2UserPrincipal 타입 확인 완료: {}", principal);
             return (OAuth2UserPrincipal) principal;
         }
+        log.warn("Authentication principal이 OAuth2UserPrincipal이 아닙니다. 타입: {}", principal.getClass().getName());
         return null;
     }
 

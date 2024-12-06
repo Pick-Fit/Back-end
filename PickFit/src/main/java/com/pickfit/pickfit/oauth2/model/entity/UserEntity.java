@@ -1,10 +1,9 @@
 package com.pickfit.pickfit.oauth2.model.entity;
 
-import com.pickfit.pickfit.multipartupload.entity.UploadEntity;
-import jakarta.persistence.*;
-
-import java.util.List;
-import java.util.ArrayList;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "app_user")
@@ -12,7 +11,7 @@ public class UserEntity {
 
     @Id
     @Column(nullable = false, unique = true)
-    private String email; // 로그인 이메일 (PK)
+    private String email; // 로그인 이메일
 
     @Column(nullable = false)
     private String name; // 로그인 이름
@@ -31,17 +30,6 @@ public class UserEntity {
 
     @Column(nullable = true)
     private String role = "USER"; // 기본값 설정
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<UploadEntity> uploadedImages = new ArrayList<>();
-
-    public List<UploadEntity> getUploadedImages() {
-        return uploadedImages;
-    }
-
-    public void setUploadedImages(List<UploadEntity> uploadedImages) {
-        this.uploadedImages = uploadedImages;
-    }
 
     public UserEntity() {
     }
@@ -122,7 +110,6 @@ public class UserEntity {
                 ", address='" + address + '\'' +
                 ", nickname='" + nickname + '\'' +
                 ", role='" + role + '\'' +
-                ", uploadedImages=" + uploadedImages.size() +
                 '}';
     }
 }

@@ -27,6 +27,7 @@ public class SecurityConfig implements WebMvcConfigurer {
                 .and()
                 .csrf().disable() // CSRF 보호 비활성화 (FastAPI와의 통신 테스트를 위해 비활성화)
                 .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/", "/login", "/oauth2/**").permitAll()
                         .requestMatchers("/api/**").permitAll() // `/api/**` 경로는 모두 인증 없이 접근 가능
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // OPTIONS 요청 허용 (CORS 사전 요청)
                         .anyRequest().permitAll() // 모든 요청 인증 없이 허용

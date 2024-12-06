@@ -19,22 +19,14 @@ public class UploadService {
     private final AmazonS3 amazonS3;
     private final String bucketName = "pickfit"; // 버킷 이름 설정
     private final UploadRepository uploadRepository;
-    private final UserRepository userRepository;
 
-    public UploadService(AmazonS3 amazonS3, UploadRepository uploadRepository, UserRepository userRepository) {
+    public UploadService(AmazonS3 amazonS3, UploadRepository uploadRepository){
         this.amazonS3 = amazonS3;
         this.uploadRepository = uploadRepository;
-        this.userRepository = userRepository;
     }
 
     public String uploadFile(String userEmail, MultipartFile file) {
         try {
-
-            Optional<UserEntity> userOptional = userRepository.findById(userEmail);
-            if (userOptional.isEmpty()) {
-                throw new RuntimeException("해당 이메일을 가진 사용자를 찾을 수 없습니다: " + userEmail);
-            }
-            UserEntity user = userOptional.get();
 
             String keyName = "userimages/" + file.getOriginalFilename(); // 파일을 S3에 저장할 경로 지정
 
@@ -49,10 +41,7 @@ public class UploadService {
             String fileUrl = amazonS3.getUrl(bucketName, keyName).toString();
 
             // 이미지 정보 DB에 저장
-            UploadEntity uploadEntity = new UploadEntity(user, file.getOriginalFilename(), fileUrl, LocalDateTime.now());
-
-            // UserEntity와 연관된 uploadedImages 리스트에 추가
-            user.getUploadedImages().add(uploadEntity);
+            UploadEntity uploadEntity = new UploadEntity(userEmail, file.getOriginalFilename(), fileUrl, LocalDateTime.now());
 
             uploadRepository.save(uploadEntity); // 여기서 데이터베이스에 저장
 

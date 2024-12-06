@@ -1,5 +1,7 @@
 package com.pickfit.pickfit.multipartupload.controller;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.multipart.MultipartFile;
 import com.pickfit.pickfit.multipartupload.service.UploadService;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +21,11 @@ public class UploadController {
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file, @RequestParam("email") String userEmail) {
+    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        logger.info("Authentication: {}", authentication);
+        logger.info("Is authenticated: {}", authentication.isAuthenticated());
+        String userEmail = authentication.getName();
         logger.info("파일 업로드 요청/ 파일이름: {}", file.getOriginalFilename());
 
         // 파일 업로드 서비스 호출
