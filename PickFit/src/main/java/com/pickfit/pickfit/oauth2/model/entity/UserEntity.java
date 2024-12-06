@@ -1,9 +1,10 @@
 package com.pickfit.pickfit.oauth2.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.pickfit.pickfit.multipartupload.entity.UploadEntity;
+import jakarta.persistence.*;
+
+import java.util.List;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "app_user")
@@ -30,6 +31,17 @@ public class UserEntity {
 
     @Column(nullable = true)
     private String role = "USER"; // 기본값 설정
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UploadEntity> uploadedImages = new ArrayList<>();
+
+    public List<UploadEntity> getUploadedImages() {
+        return uploadedImages;
+    }
+
+    public void setUploadedImages(List<UploadEntity> uploadedImages) {
+        this.uploadedImages = uploadedImages;
+    }
 
     public UserEntity() {
     }
@@ -110,6 +122,7 @@ public class UserEntity {
                 ", address='" + address + '\'' +
                 ", nickname='" + nickname + '\'' +
                 ", role='" + role + '\'' +
+                ", uploadedImages=" + uploadedImages.size() +
                 '}';
     }
 }
