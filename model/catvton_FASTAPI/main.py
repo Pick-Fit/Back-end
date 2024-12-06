@@ -1,85 +1,133 @@
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from fastapi import FastAPI, UploadFile, File, HTTPException
+from contextlib import asynccontextmanager
 import base64
-from PIL import Image, ImageOps
+import json
 from io import BytesIO
+from PIL import Image, ImageFilter
 import os
-import subprocess
+from datetime import datetime
+import torch
+import numpy as np
+from huggingface_hub import snapshot_download
+from model.cloth_masker import AutoMasker
+from model.pipeline import CatVTONPipeline
 
 app = FastAPI()
 
-# 디렉토리 설정
-PERSON_DIR = "trenbe/test/images"
-CLOTH_DIR = "trenbe/test/cloth"
-TEST_PAIR_FILE = "trenbe/test/test_pairs_paired.txt"
+person_image_dir = "trenbe/test/images/"
+clothing_image_dir = "trenbe/test/cloth/"
+agnostic_mask_dir = "trenbe/test/agnostic_masks/"
+output_image_dir = "output/"
+seed = 555
 
-class Base64Images(BaseModel):
-    person_base64: str
-    cloth_base64: str
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    print("Initializing application resources...")
+    repo_path = snapshot_download(repo_id="zhengchong/CatVTON")
 
-def resize_with_aspect_ratio(image, target_width=384, target_height=512):    
-    aspect_ratio = image.width / image.height
-    target_aspect_ratio = target_width / target_height
-    if aspect_ratio > target_aspect_ratio:
-        new_width = target_width
-        new_height = int(target_width / aspect_ratio)
-    else:
-        new_height = target_height
-        new_width = int(target_height * aspect_ratio)
-    resized_image = image.resize((new_width, new_height), Image.LANCZOS)
-    padded_image = ImageOps.pad(resized_image, (target_width, target_height), color=(0, 0, 0))
-    return padded_image
+    automasker = AutoMasker(
+        densepose_ckpt=os.path.join(repo_path, "DensePose"),
+        schp_ckpt=os.path.join(repo_path, "SCHP"),
+        device="cuda"
+    )
+    # CatVTONPipeline 초기화
+    @torch.no_grad()
+    def load_catvton_pipeline():
+        return CatVTONPipeline(
+            attn_ckpt_version="mix",
+            attn_ckpt="zhengchong/CatVTON",
+            base_ckpt="booksforcharlie/stable-diffusion-inpainting",
+            weight_dtype=torch.float32,
+            device="cuda",
+            skip_safety_check=True,
+            use_tf32=True,
+            compile=False
+        )
+    catvton_pipeline = load_catvton_pipeline()
+    app.state.automasker = automasker
+    app.state.catvton_pipeline = catvton_pipeline
+    yield
+    print("Cleaning up application resources...")
 
-def decode_base64_to_image(base64_string, output_path, target_width=384, target_height=512):
-    image_data = base64.b64decode(base64_string)
-    image = Image.open(BytesIO(image_data))    
-    processed_image = resize_with_aspect_ratio(image, target_width, target_height)    
-    processed_image.save(output_path)
-    return output_path
 
-def append_to_test_pairs(person_image_name, cloth_image_name):
-    with open(TEST_PAIR_FILE, "a") as file:
-        file.write(f"{person_image_name} {cloth_image_name}\n")
+app = FastAPI(lifespan=lifespan)
+# Helper functions
+def save_image_from_base64(base64_data: str, file_path: str):
+    """Base64 이미지를 디코딩하여 저장"""
+    image_data = base64.b64decode(base64_data)
+    image = Image.open(BytesIO(image_data))
+    image.save(file_path)
 
-def run_virtual_tryon(person_image_path, cloth_image_path):
-    repo_path_local = "zhengchong/CatVTON"
-    data_root_path = r'C:\Users\epdgn\Downloads\catvton_FASTAPI\trenbe'
-    output_dir = r'C:\Users\epdgn\Downloads\catvton_FASTAPI\output'
+def generate_and_save_mask(automasker: AutoMasker, person_image_path: str, mask_path: str):
+    """마스크 생성 및 저장"""
+    mask = automasker(person_image_path)['mask']
+    mask.save(mask_path)
 
-    preprocess_command = [
-        "python", "c:/Users/epdgn/Downloads/catvton_FASTAPI/preprocess_agnostic_mask.py", 
-        "--data_root_path", data_root_path,
-        "--repo_path", repo_path_local
-    ]    
-    subprocess.run(preprocess_command, check=True)
-    
-    inference_command = [
-        "python", "-u", "c:/Users/epdgn/Downloads/catvton_FASTAPI/inference.py",  
-        "--dataset", "trenbe",
-        "--data_root_path", data_root_path,
-        "--output_dir", output_dir,
-        "--dataloader_num_workers", "4",
-        "--repaint",
-        "--batch_size", "1",
-        "--seed", "555"
-    ]    
-    subprocess.run(inference_command, check=True)
-    return "Virtual try-on completed successfully!"
+def repaint(person, mask, result):
+    """리페인팅 기능"""
+    _, h = result.size
+    kernal_size = h // 100
+    if kernal_size % 2 == 0:
+        kernal_size += 1
+    mask = mask.filter(ImageFilter.GaussianBlur(kernal_size))
+    mask = mask.resize(person.size, Image.BILINEAR)
+    result = result.resize(person.size, Image.BILINEAR)
 
-@app.post("/decode-image/")
-async def decode_image(image_data: Base64Images):    
-    person_image_name = "decoded_image.jpg"
-    person_output_path = os.path.join(PERSON_DIR, person_image_name)
-    decoded_person_image_path = decode_base64_to_image(image_data.person_base64, person_output_path)    
-    
-    cloth_image_name = "decoded_image.jpg"
-    cloth_output_path = os.path.join(CLOTH_DIR, cloth_image_name)
-    decoded_cloth_image_path = decode_base64_to_image(image_data.cloth_base64, cloth_output_path)
-    
-    append_to_test_pairs(person_image_name, cloth_image_name)
+    person_np = np.array(person)
+    result_np = np.array(result)
+    mask_np = np.array(mask) / 255
+    mask_np = np.expand_dims(mask_np, axis=-1)
+    mask_np = np.repeat(mask_np, 3, axis=-1)
 
-    result = run_virtual_tryon(decoded_person_image_path, decoded_cloth_image_path)
-    return {
-        "message": "Virtual Try-On completed successfully",
-        "result": result  
-    }
+    repaint_result = person_np * (1 - mask_np) + result_np * mask_np
+    return Image.fromarray(repaint_result.astype(np.uint8))
+
+def apply_virtual_tryon(catvton_pipeline, person_image_path: str, clothing_image_path: str, mask_path: str, output_image_dir: str):
+    """Virtual Try-On 적용"""
+    person_image = Image.open(person_image_path)
+    clothing_image = Image.open(clothing_image_path)
+    mask_image = Image.open(mask_path)
+
+    generator = torch.Generator(device="cuda").manual_seed(seed)
+    results = catvton_pipeline(
+        person_image,
+        clothing_image,
+        mask_image,
+        num_inference_steps=50,
+        guidance_scale=2.5,
+        height=1024,
+        width=768,
+        generator=generator,
+        eta=1.0
+    )
+
+    output_image_path = os.path.join(output_image_dir, "output_image.jpg")
+    repaint_result = repaint(person_image, mask_image, results[0])
+    repaint_result.save(output_image_path)
+
+# FastAPI Endpoint
+@app.post("/upload/")
+async def upload_images(file: UploadFile = File(...)):
+    contents = await file.read()
+    data = json.loads(contents)
+    person_base64 = data.get("person_base64")
+    cloth_base64 = data.get("cloth_base64")
+
+    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+    person_image_name = f"{timestamp}_person.jpg"
+    clothing_image_name = f"{timestamp}_cloth.jpg"
+    mask_name = f"{timestamp}_mask.png"
+
+    person_image_path = os.path.join(person_image_dir, person_image_name)
+    clothing_image_path = os.path.join(clothing_image_dir, clothing_image_name)
+    mask_path = os.path.join(agnostic_mask_dir, mask_name)
+
+    save_image_from_base64(person_base64, person_image_path)
+    save_image_from_base64(cloth_base64, clothing_image_path)
+
+    generate_and_save_mask(app.state.automasker, person_image_path, mask_path)
+
+    apply_virtual_tryon(app.state.catvton_pipeline, person_image_path, clothing_image_path, mask_path, output_image_dir)
+
+    output_image_name = f"{timestamp}_output.jpg"
+    return {"message": "Images processed successfully", "output_image": f"{timestamp}_output.jpg"}

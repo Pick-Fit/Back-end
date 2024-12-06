@@ -14,9 +14,7 @@ class InferenceDataset(Dataset):
         self.args = args
         self.vae_processor = VaeImageProcessor(vae_scale_factor=8) 
         self.mask_processor = VaeImageProcessor(vae_scale_factor=8, do_normalize=False, do_binarize=True, do_convert_grayscale=True) 
-        self.data = self.load_data()
-        print(f"InferenceDataset initialized with {len(self.data)} items.", flush=True)  # 로그 추가
-    
+        self.data = self.load_data()    
     def load_data(self):
         return []
     
@@ -35,29 +33,29 @@ class InferenceDataset(Dataset):
             'mask': self.mask_processor.preprocess(mask, self.args.height, self.args.width)[0]
             }
 
-class trenbeTestDataset(InferenceDataset):
-    def load_data(self):        
-        pair_txt = os.path.join(self.args.data_root_path, "test",'test_pairs_paired.txt')
-        if not os.path.exists(pair_txt):  # 로그 추가
-            raise FileNotFoundError(f"Pair file not found: {pair_txt}")
-        print(f"Loading pair file: {pair_txt}", flush=True)  # 로그 추가
+# class trenbeTestDataset(InferenceDataset):
+#     def load_data(self):        
+#         pair_txt = os.path.join(self.args.data_root_path, "test",'test_pairs_paired.txt')
+#         if not os.path.exists(pair_txt):  # 로그 추가
+#             raise FileNotFoundError(f"Pair file not found: {pair_txt}")
+#         print(f"Loading pair file: {pair_txt}", flush=True)  # 로그 추가
         
-        with open(pair_txt, 'r') as f:
-            lines = f.readlines()
+#         with open(pair_txt, 'r') as f:
+#             lines = f.readlines()
         
-        output_dir = os.path.join(self.args.output_dir, "trenbe", 'result')
-        data = []
-        for line in lines:
-            person_img, cloth_img = line.strip().split(" ")
-            cloth_img = person_img 
-            data.append({
-            'person_name': person_img,
-            'person': os.path.join(self.args.data_root_path, 'test', 'images', person_img),
-            'cloth': os.path.join(self.args.data_root_path, 'test', 'cloth', cloth_img),
-            'mask': os.path.join(self.args.data_root_path, 'test', 'agnostic_masks', person_img.replace('.jpg', '.png')),
-        })
-        print(f"Loaded {len(data)} pairs from pair file.", flush=True)  # 로그 추가
-        return data
+#         output_dir = os.path.join(self.args.output_dir, "trenbe", 'result')
+#         data = []
+#         for line in lines:
+#             person_img, cloth_img = line.strip().split(" ")
+#             cloth_img = person_img 
+#             data.append({
+#             'person_name': person_img,
+#             'person': os.path.join(self.args.data_root_path, 'test', 'images', person_img),
+#             'cloth': os.path.join(self.args.data_root_path, 'test', 'cloth', cloth_img),
+#             'mask': os.path.join(self.args.data_root_path, 'test', 'agnostic_masks', person_img.replace('.jpg', '.png')),
+#         })
+#         print(f"Loaded {len(data)} pairs from pair file.", flush=True)  # 로그 추가
+#         return data
                    
        
 def parse_args():
@@ -74,18 +72,18 @@ def parse_args():
         default="zhengchong/CatVTON",
         help=("The Path to the checkpoint of trained tryon model."),
     )
-    parser.add_argument(
-        "--dataset_name",
-        type=str,
-        required=True,
-        help="The datasets to use for evaluation.",
-    )
-    parser.add_argument(
-        "--data_root_path", 
-        type=str, 
-        required=True,
-        help="Path to the dataset to evaluate."
-    )
+    # parser.add_argument(
+    #     "--dataset_name",
+    #     type=str,
+    #     required=True,
+    #     help="The datasets to use for evaluation.",
+    # )
+    # parser.add_argument(
+    #     "--data_root_path", 
+    #     type=str, 
+    #     required=True,
+    #     help="Path to the dataset to evaluate."
+    # )
     parser.add_argument(
         "--output_dir",
         type=str,
@@ -96,14 +94,14 @@ def parse_args():
     parser.add_argument(
         "--seed", type=int, default=555, help="A seed for reproducible evaluation."
     )
-    parser.add_argument(
-        "--batch_size", type=int, default=8, help="The batch size for evaluation."
-    )
+    # parser.add_argument(
+    #     "--batch_size", type=int, default=8, help="The batch size for evaluation."
+    # )
     
     parser.add_argument(
         "--num_inference_steps",
         type=int,
-        default=75, #default = 50  #이미지를 생성하는 동안 실행하는 단계 수
+        default=50, #default = 50  #이미지를 생성하는 동안 실행하는 단계 수
         help="Number of inference steps to perform.",
     )
     parser.add_argument(
@@ -142,12 +140,12 @@ def parse_args():
         default=True,
         help=( "Whether or not to allow TF32 on Ampere GPUs. Can be used to speed up training."),
     )
-    parser.add_argument(
-        "--dataloader_num_workers",
-        type=int,
-        default=8,
-        help=( "Number of subprocesses to use for data loading."),
-    )
+    # parser.add_argument(
+    #     "--dataloader_num_workers",
+    #     type=int,
+    #     default=8,
+    #     help=( "Number of subprocesses to use for data loading."),
+    # )
     parser.add_argument(
         "--mixed_precision",
         type=str,
@@ -155,22 +153,21 @@ def parse_args():
         choices=["no", "fp16", "bf16"],
         help=( "Whether to use mixed precision."),
     )
-    parser.add_argument(
-        "--concat_axis",
-        type=str,
-        choices=["x", "y", 'random'],
-        default="y",
-        help="The axis to concat the cloth feature, select from ['x', 'y', 'random'].",
-    )
+    # parser.add_argument(
+    #     "--concat_axis",
+    #     type=str,
+    #     choices=["x", "y", 'random'],
+    #     default="y",
+    #     help="The axis to concat the cloth feature, select from ['x', 'y', 'random'].",
+    # )
     parser.add_argument(
         "--enable_condition_noise",
         action="store_true",
-    default=True,
+        default=True,
         help="Whether or not to enable condition noise.",
     )
     
     args = parser.parse_args()
-    print(f"Arguments: {vars(args)}", flush=True)  # 로그 추가
 
     env_local_rank = int(os.environ.get("LOCAL_RANK", -1))
     if env_local_rank != -1 and env_local_rank != args.local_rank:
@@ -192,17 +189,17 @@ def repaint(person, mask, result):
     repaint_result = Image.fromarray(repaint_result.astype(np.uint8))
     return repaint_result
 
-def to_pil_image(images):
-    images = (images / 2 + 0.5).clamp(0, 1)
-    images = images.cpu().permute(0, 2, 3, 1).float().numpy()
-    if images.ndim == 3:
-        images = images[None, ...]
-    images = (images * 255).round().astype("uint8")
-    if images.shape[-1] == 1:
-        pil_images = [Image.fromarray(image.squeeze(), mode="L") for image in images]
-    else:
-        pil_images = [Image.fromarray(image) for image in images]
-    return pil_images
+# def to_pil_image(images):
+#     images = (images / 2 + 0.5).clamp(0, 1)
+#     images = images.cpu().permute(0, 2, 3, 1).float().numpy()
+#     if images.ndim == 3:
+#         images = images[None, ...]
+#     images = (images * 255).round().astype("uint8")
+#     if images.shape[-1] == 1:
+#         pil_images = [Image.fromarray(image.squeeze(), mode="L") for image in images]
+#     else:
+#         pil_images = [Image.fromarray(image) for image in images]
+#     return pil_images
 
 @torch.no_grad()
 def main():
@@ -222,66 +219,37 @@ def main():
     )
     print("CatVTONPipeline initialized successfully.", flush=True)  # 로그 추가
 
-    if args.dataset_name == "trenbe":
-        dataset = trenbeTestDataset(args)
-    else:
-        raise ValueError(f"Invalid dataset name {args.dataset}.")
+    # if args.dataset_name == "trenbe":
+    #     dataset = trenbeTestDataset(args)
+    # else:
+    #     raise ValueError(f"Invalid dataset name {args.dataset}.")
     
-    if len(dataset) == 0:
-        raise ValueError("Dataset is empty. Please check data loading.")
-    dataloader = DataLoader(
-        dataset,
-        batch_size=args.batch_size,
-        shuffle=False,
-        num_workers=args.dataloader_num_workers
-    )
-
-    for batch in dataloader:
-        print(f"Batch loaded: {batch.keys()}", flush=True)  # 로그 추가
-        if len(batch) == 0:
-            print("Error: Batch is empty.", flush=True)
+    # if len(dataset) == 0:
+    #     raise ValueError("Dataset is empty. Please check data loading.")
+    # dataloader = DataLoader(
+    #     dataset,
+    #     batch_size=args.batch_size,
+    #     shuffle=False,
+    #     num_workers=args.dataloader_num_workers
+    # )
 
     generator = torch.Generator(device='cuda').manual_seed(args.seed)
-    args.output_dir = os.path.join(args.output_dir, f"{args.dataset_name}-{args.height}", "result")
-    for batch in tqdm(dataloader):
-        person_images = batch['person'].to('cuda')
-        cloth_images = batch['cloth'].to('cuda')
-        masks = batch['mask'].to('cuda')
+    person_images = Image.open('trenbe/test/images')
+    cloth_images = Image.open('trenbe/test/cloth')
+    masks = Image.open('trenbe/test/agnostic_masks')
 
-        print(f"Running inference for batch...", flush=True)  # 로그 추가
-        results = pipeline(
-            person_images,
-            cloth_images,
-            masks,
-            num_inference_steps=args.num_inference_steps,
-            guidance_scale=args.guidance_scale,
-            height=args.height,
-            width=args.width,
-            generator=generator,
-        )        
-        if args.concat_eval_results or args.repaint:
-            person_images = to_pil_image(person_images)
-            cloth_images = to_pil_image(cloth_images)
-            masks = to_pil_image(masks)
-        for i, result in enumerate(results):
-            person_name = batch['person_name'][i]
-            output_path = os.path.join(args.output_dir, person_name)
-            if not os.path.exists(os.path.dirname(output_path)):
-                os.makedirs(os.path.dirname(output_path))
-            print(f"Saving result for {person_name}...", flush=True)  # 로그 추가
-            if args.repaint:                
-                person_path, mask_path = dataset.data[batch['index'][i]]['person'], dataset.data[batch['index'][i]]['mask']
-                person_image= Image.open(person_path).resize(result.size, Image.LANCZOS)
-                mask = Image.open(mask_path).resize(result.size, Image.NEAREST)
-                result = repaint(person_image, mask, result)
-            if args.concat_eval_results:
-                w, h = result.size
-                concated_result = Image.new('RGB', (w*3, h))
-                concated_result.paste(person_images[i], (0, 0))
-                concated_result.paste(cloth_images[i], (w, 0))  
-                concated_result.paste(result, (w*2, 0))
-                result = concated_result
-            result.save(output_path)
+    results = pipeline(
+        person_images,
+        cloth_images,
+        masks,
+        num_inference_steps=args.num_inference_steps,
+        guidance_scale=args.guidance_scale,
+        height=args.height,
+        width=args.width,
+        generator=generator,
+    )        
+    output_dir = os.path.join(output_dir)
+    results.save(output_dir)
 
 if __name__ == "__main__":
     main()
