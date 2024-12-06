@@ -1,5 +1,6 @@
 package com.pickfit.pickfit.multipartupload.entity;
 
+import com.pickfit.pickfit.oauth2.model.entity.UserEntity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -12,8 +13,9 @@ public class UploadEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "email", nullable = false)
-    private String email;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "email", referencedColumnName = "email", nullable = false) // FK로 설정
+    private UserEntity user;
 
     @Column(name = "file_name", nullable = false)
     private String fileName;
@@ -28,8 +30,8 @@ public class UploadEntity {
 
     }
 
-    public UploadEntity(String email, String fileName, String url, LocalDateTime uploadDate) {
-        this.email = email;
+    public UploadEntity(UserEntity user, String fileName, String url, LocalDateTime uploadDate) {
+        this.user = user;
         this.fileName = fileName;
         this.url = url;
         this.uploadDate = uploadDate;
@@ -43,12 +45,12 @@ public class UploadEntity {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public UserEntity getUser() {
+        return user;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUser(UserEntity user) {
+        this.user = user;
     }
 
     public String getFileName() {
@@ -79,7 +81,7 @@ public class UploadEntity {
     public String toString() {
         return "UploadEntity{" +
                 "id=" + id +
-                ", email='" + email + '\'' +
+                ", userEmail=" + (user != null ? user.getEmail() : "null") +
                 ", fileName='" + fileName + '\'' +
                 ", url='" + url + '\'' +
                 ", uploadDate=" + uploadDate +
