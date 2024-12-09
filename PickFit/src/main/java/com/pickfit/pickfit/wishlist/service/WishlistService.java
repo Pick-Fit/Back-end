@@ -3,11 +3,13 @@ package com.pickfit.pickfit.wishlist.service;
 import com.pickfit.pickfit.wishlist.dto.WishlistDto;
 import com.pickfit.pickfit.wishlist.entity.WishlistEntity;
 import com.pickfit.pickfit.wishlist.repository.WishlistRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class WishlistService {
@@ -23,63 +25,78 @@ public class WishlistService {
             throw new IllegalArgumentException("유효하지 않은 사용자 이메일입니다.");
         }
 
-        return wishlistRepository.findByUserEmail(userEmail);
+        // 상태 필터링 - isDeleted가 false인 데이터만 반환
+        List<WishlistEntity> allWishlist = wishlistRepository.findByUserEmail(userEmail);
+        return allWishlist.stream()
+                .filter(wishlist -> !wishlist.isDeleted()) // 상태가 false인 항목만 필터링
+                .collect(Collectors.toList());
     }
-
+    @Transactional
     public WishlistEntity addToWishlist(WishlistDto wishlistDto) {
         if (wishlistDto == null) {
             throw new IllegalArgumentException("위시리스트 요청 데이터가 비어 있습니다.");
         }
 
-        try {
-            // 유효성 검사
-            if (wishlistDto.getUserEmail() == null || wishlistDto.getUserEmail().isEmpty()) {
-                throw new IllegalArgumentException("유효하지 않은 이메일입니다.");
-            }
-            if (wishlistDto.getProductId() == null) {
-                throw new IllegalArgumentException("상품 ID가 누락되었습니다.");
-            }
-
-            // 위시리스트 생성 및 저장
-            WishlistEntity wishlist = new WishlistEntity();
-            wishlist.setUserEmail(wishlistDto.getUserEmail());
-            wishlist.setImageUrl(wishlistDto.getImageUrl());
-            wishlist.setUserName(wishlistDto.getUserName());
-            wishlist.setPrice(wishlistDto.getPrice());
-            wishlist.setProductId(wishlistDto.getProductId());
-            wishlist.setTitle(wishlistDto.getTitle());
-
-            return wishlistRepository.save(wishlist);
-        } catch (DataIntegrityViolationException e) {
-            // 데이터베이스 제약 조건 위반 (예: 중복된 항목)
-            throw new IllegalStateException("위시리스트 데이터베이스 제약 조건 위반: " + e.getMessage(), e);
-        } catch (Exception e) {
-            // 그 외의 오류
-            throw new RuntimeException("위시리스트에 상품을 추가하는 중 시스템 오류가 발생했습니다: " + e.getMessage(), e);
+        // 유효성 검사
+        if (wishlistDto.getUserEmail() == null || wishlistDto.getUserEmail().isEmpty()) {
+            throw new IllegalArgumentException("유효하지 않은 이메일입니다.");
         }
+        if (wishlistDto.getProductId() == null) {
+            throw new IllegalArgumentException("상품 ID가 누락되었습니다.");
+        }
+
+        // 기존 데이터 조회
+        Optional<WishlistEntity> optionalProduct = wishlistRepository.findByProductIdAndUserEmail(
+                wishlistDto.getProductId(),
+                wishlistDto.getUserEmail()
+        );
+
+        if (optionalProduct.isPresent()) {
+            WishlistEntity existingProduct = optionalProduct.get();
+
+            if (existingProduct.isDeleted()) {
+                // 기존 데이터가 삭제 상태라면 복구
+                existingProduct.setDeleted(false);
+                existingProduct.setImageUrl(wishlistDto.getImageUrl());
+                existingProduct.setUserName(wishlistDto.getUserName());
+                existingProduct.setPrice(wishlistDto.getPrice());
+                existingProduct.setTitle(wishlistDto.getTitle());
+                return wishlistRepository.save(existingProduct);
+            } else {
+                // 이미 활성화된 상태면 예외 처리
+                throw new IllegalStateException("이미 활성 상태로 등록된 위시리스트 항목입니다.");
+            }
+        }
+
+        // 새 데이터 생성
+        WishlistEntity newProduct = new WishlistEntity();
+        newProduct.setUserEmail(wishlistDto.getUserEmail());
+        newProduct.setImageUrl(wishlistDto.getImageUrl());
+        newProduct.setUserName(wishlistDto.getUserName());
+        newProduct.setPrice(wishlistDto.getPrice());
+        newProduct.setProductId(wishlistDto.getProductId());
+        newProduct.setTitle(wishlistDto.getTitle());
+        newProduct.setDeleted(false); // 새 데이터는 기본적으로 활성 상태
+
+        return wishlistRepository.save(newProduct);
     }
+
 
 
     public boolean softDeleteProduct(String userEmail, Long productId) {
         Optional<WishlistEntity> optionalProduct = wishlistRepository.findByProductIdAndUserEmail(productId, userEmail);
 
         if (optionalProduct.isEmpty()) {
-            return false; // 제품이 존재하지 않음
+            return false; // 제품이 존재하지 않거나 조건 불일치
         }
 
         WishlistEntity wishlistEntity = optionalProduct.get();
 
-        // 상태 확인
-        if (wishlistEntity.isDeleted()) {
-            return false; // 이미 삭제된 데이터
-        }
-
-        // 상태 변경
-        wishlistEntity.setDeleted(true);
+        // 상태 값 변경
+        wishlistEntity.setDeleted(true); // 예: 'deleted' 상태를 true로 설정
         wishlistRepository.save(wishlistEntity);
 
         return true;
     }
-
 
 }
