@@ -54,6 +54,7 @@ public class WishlistController {
         }
     }
 
+
     @PostMapping
     public ResponseEntity<Map<String, String>> addToWishlist(@RequestBody WishlistDto request) {
         Map<String, String> response = new HashMap<>();
@@ -69,25 +70,27 @@ public class WishlistController {
 
             // 서비스 호출
             wishlistService.addToWishlist(request);
-            response.put("message", "상품이 위시리스트에 추가되었습니다.");
+            response.put("message", "상품이 위시리스트에 추가되었거나 복구되었습니다.");
             return ResponseEntity.ok(response);
         } catch (IllegalArgumentException e) {
-//            IllegalArgumentException: 입력값의 형식이 잘못된 경우.
             // 서비스 레이어에서 유효성 검사 실패
             response.put("error", "잘못된 입력값입니다: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+        } catch (IllegalStateException e) {
+            // 이미 활성 상태인 데이터에 대한 예외 처리
+            response.put("error", e.getMessage());
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
         } catch (RuntimeException e) {
-//            RuntimeException: 서비스 레이어에서 발생하는 일반적인 로직 오류.
             // 예상치 못한 비즈니스 로직 오류
             response.put("error", "위시리스트에 상품을 추가하는 중 문제가 발생했습니다: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         } catch (Exception e) {
-//            Exception: 나머지 모든 예외.
             // 시스템 오류 또는 기타 예외
             response.put("error", "알 수 없는 오류가 발생했습니다: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
+
 
 
     @DeleteMapping("/{productId}")
