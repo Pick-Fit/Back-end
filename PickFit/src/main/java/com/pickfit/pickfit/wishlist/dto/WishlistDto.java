@@ -5,13 +5,13 @@ public class WishlistDto {
     private String userEmail;
     private String imageUrl;
     private String userName;
-    private Double price;
+    private String price;
     private Long productId;
     private String title;
 
     public WishlistDto() {}
 
-    public WishlistDto(String userEmail, String imageUrl, String userName, Double price, Long productId, String title) {
+    public WishlistDto(String userEmail, String imageUrl, String userName, String price, Long productId, String title) {
         this.userEmail = userEmail;
         this.imageUrl = imageUrl;
         this.userName = userName;
@@ -44,11 +44,11 @@ public class WishlistDto {
         this.userName = userName;
     }
 
-    public Double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -66,5 +66,17 @@ public class WishlistDto {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    @Override
+    public String toString() {
+        return "WishlistDto{" +
+                "userEmail='" + userEmail + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", userName='" + userName + '\'' +
+                ", price='" + price + '\'' +
+                ", productId=" + productId +
+                ", title='" + title + '\'' +
+                '}';
     }
 }

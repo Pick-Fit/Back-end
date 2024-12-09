@@ -20,7 +20,7 @@ public class WishlistEntity {
     private String userName;
 
     @Column(name = "price", nullable = false)  // 상품 가격 컬럼
-    private Double price;
+    private String price;
 
     @Column(name = "product_id", nullable = false)  // 상품 ID 컬럼
     private Long productId;
@@ -28,23 +28,22 @@ public class WishlistEntity {
     @Column(name = "title", nullable = false)  // 상품 제목 컬럼
     private String title;
 
+    @Column(name = "isDeleted")
+    private boolean isDeleted = false; // 기본값: false (삭제되지 않은 상태)
+
+
+
+
     public WishlistEntity() {}
 
-    public WishlistEntity(String userEmail, String imageUrl, String userName, Double price, Long productId, String title) {
+    public WishlistEntity(String userEmail, String imageUrl, String userName, String price, Long productId, String title, boolean isDeleted) {
         this.userEmail = userEmail;
         this.imageUrl = imageUrl;
         this.userName = userName;
         this.price = price;
         this.productId = productId;
         this.title = title;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+        this.isDeleted = isDeleted;
     }
 
     public String getUserEmail() {
@@ -71,11 +70,11 @@ public class WishlistEntity {
         this.userName = userName;
     }
 
-    public Double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -93,5 +92,28 @@ public class WishlistEntity {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "WishlistEntity{" +
+                "isDeleted=" + isDeleted +
+                ", title='" + title + '\'' +
+                ", productId=" + productId +
+                ", price='" + price + '\'' +
+                ", userName='" + userName + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                '}';
     }
 }
