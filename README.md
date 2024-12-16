@@ -88,7 +88,7 @@ TrymeonEntity savedImage = trymeonService.saveTrymeonImage( // 결과 이미지�
         trymeonDTO.getProductId() // 상품 ID
 );
 ```
-### 등록 기준
+### 위시리스트 등록 기준
 1. **필수 입력값**:
    - 사용자 이메일 (`userEmail`)
    - 상품 ID (`productId`)
