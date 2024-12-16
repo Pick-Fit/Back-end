@@ -5,10 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-public interface WishlistRepository extends JpaRepository<WishlistEntity, Integer> {  // Long -> Integer로 변경
-
-    // 특정 사용자의 위시리스트 조회
-    List<WishlistEntity> findByUserEmail(String userEmail);  // userId -> userEmail로 변경
+public interface WishlistRepository extends JpaRepository<WishlistEntity, Integer> {
+    List<WishlistEntity> findByUserEmail(String userEmail);
+    Optional<WishlistEntity> findByProductIdAndUserEmail(Long productId, String userEmail);
 }
