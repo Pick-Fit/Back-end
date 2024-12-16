@@ -8,7 +8,6 @@
 주요 기능
 
 ## MyPage
-### Code block
 ```js
 여기는 마이페이지 코드 영역입니다..
 ```
@@ -24,7 +23,6 @@
 
 
 ## Virtual
-### Code block
 ```js
 여기는 Virtaul 코드 영역입니다..
 ```
@@ -37,7 +35,6 @@
 
 
 ## Wishlist
-### Code block
 ```js
 여기는 위시리스트 코드 영역입니다..
 
@@ -52,7 +49,6 @@
 
 
 ## Google
-### Code block
 ```js
 여기는 구글 로그인 코드 영역입니다..
 ```
