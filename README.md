@@ -66,6 +66,6 @@
 ### General link
 - [🚗 Visit MyPage Repository](https://github.com/Pick-Fit/Back-end/blob/main/PickFit/src/main/java/com/pickfit/pickfit/oauth2/model/controller/UserController.java)
 - [🙋‍♂️ Visit Virtual Repository](https://github.com/Pick-Fit/Back-end/tree/main/PickFit/src/main/java/com/pickfit/pickfit/trymeon)  
-- [🙋‍♂️ Visit Wishlist Repository]([https://github.com/onealog](https://github.com/Pick-Fit/Back-end/tree/main/PickFit/src/main/java/com/pickfit/pickfit/wishlist))
+- [🙋‍♂️ Visit Wishlist Repository]([https://github.com/onealog](https://github.com/Pick-Fit/Back-end/tree/main/PickFit/src/main/java/com/pickfit/pickfit/wishlist)
 - [🙋‍♂️ Visit Google-Login Repository](https://github.com/Pick-Fit/Back-end/tree/main/PickFit/src/main/java/com/pickfit/pickfit/oauth2)
 
