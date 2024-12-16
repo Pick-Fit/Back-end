@@ -5,7 +5,7 @@
 - [위시리스트](#Wishlist)
 - [OAuth2 구글로그인](#Google)
 
-# 주요 기능
+## 주요 기능
 
 ## MyPage
 ```js
