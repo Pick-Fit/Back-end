@@ -4,6 +4,8 @@
 - [Virtual Try On](#Virtual)
 - [위시리스트](#Wishlist)
 - [OAuth2 구글로그인](#Google)
+- [S3 이미지 업로드](#S3)
+
 
 ## 주요 기능
 
@@ -187,4 +189,12 @@ public WishlistEntity addToWishlist(WishlistDto wishlistDto) {
 - [🙋‍♂️ Virtual 코드 보러가기](https://github.com/Pick-Fit/Back-end/tree/main/PickFit/src/main/java/com/pickfit/pickfit/trymeon)  
 - [🙋‍♂️ Wishlist 코드 보러가기](https://github.com/Pick-Fit/Back-end/tree/main/PickFit/src/main/java/com/pickfit/pickfit/wishlist)
 - [🙋‍♂️ Google 로그인 코드 보러가기](https://github.com/Pick-Fit/Back-end/tree/main/PickFit/src/main/java/com/pickfit/pickfit/oauth2)
+- [🙋‍♂️ S3 이미지 업로드 코드 보러가기](https://github.com/Pick-Fit/Back-end/tree/main/PickFit/src/main/java/com/pickfit/pickfit/multipartupload)
+
+## S3
+``js
+여기는 S3 이미지 업로드 영역입니다..
+```
+
+
 
