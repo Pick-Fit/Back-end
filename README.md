@@ -98,9 +98,63 @@ TrymeonEntity savedImage = trymeonService.saveTrymeonImage( // 결과 이미지�
 
 
 ## Wishlist
-이 자리에 위시리스트 관련 로직에 대한 설명을 간략하게 추가해주세요..
+<위시리스트 등록 기준>
+필수 값 검증: userEmail(사용자 이메일)과 productId(상품 ID)는 필수 입력값입니다.
+동일한 userEmail과 productId를 가진 항목이 이미 존재하는 경우, 해당 항목이 삭제(isDeleted=true) 상태라면 이를 복구합니다.
+이미 활성(isDeleted=false) 상태인 항목은 중복 등록을 허용하지 않으며, 예외를 발생시킵니다.
+새롭게 등록된 항목은 기본적으로 활성 상태(isDeleted=false)로 저장됩니다.
 ```js
-여기는 위시리스트 코드 영역입니다..
+
+@Transactional
+public WishlistEntity addToWishlist(WishlistDto wishlistDto) {
+    if (wishlistDto == null) {
+        throw new IllegalArgumentException("위시리스트 요청 데이터가 비어 있습니다.");
+    }
+
+    // 필수 값 검증
+    if (wishlistDto.getUserEmail() == null || wishlistDto.getUserEmail().isEmpty()) {
+        throw new IllegalArgumentException("유효하지 않은 이메일입니다.");
+    }
+    if (wishlistDto.getProductId() == null) {
+        throw new IllegalArgumentException("상품 ID가 누락되었습니다.");
+    }
+
+    // 기존 위시리스트 항목 조회
+    Optional<WishlistEntity> optionalProduct = wishlistRepository.findByProductIdAndUserEmail(
+            wishlistDto.getProductId(),
+            wishlistDto.getUserEmail()
+    );
+
+    if (optionalProduct.isPresent()) {
+        WishlistEntity existingProduct = optionalProduct.get();
+
+        if (existingProduct.isDeleted()) {
+            // 삭제 상태인 항목 복구
+            existingProduct.setDeleted(false);
+            existingProduct.setImageUrl(wishlistDto.getImageUrl());
+            existingProduct.setUserName(wishlistDto.getUserName());
+            existingProduct.setPrice(wishlistDto.getPrice());
+            existingProduct.setTitle(wishlistDto.getTitle());
+            return wishlistRepository.save(existingProduct);
+        } else {
+            // 이미 활성화된 항목 처리
+            throw new IllegalStateException("이미 활성 상태로 등록된 위시리스트 항목입니다.");
+        }
+    }
+
+    // 새로운 위시리스트 항목 생성
+    WishlistEntity newProduct = new WishlistEntity();
+    newProduct.setUserEmail(wishlistDto.getUserEmail());
+    newProduct.setImageUrl(wishlistDto.getImageUrl());
+    newProduct.setUserName(wishlistDto.getUserName());
+    newProduct.setPrice(wishlistDto.getPrice());
+    newProduct.setProductId(wishlistDto.getProductId());
+    newProduct.setTitle(wishlistDto.getTitle());
+    newProduct.setDeleted(false); // 기본적으로 활성 상태로 저장
+
+    return wishlistRepository.save(newProduct);
+}
+
 
 
 
