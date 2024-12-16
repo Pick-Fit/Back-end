@@ -192,7 +192,7 @@ public WishlistEntity addToWishlist(WishlistDto wishlistDto) {
 - [🙋‍♂️ S3 이미지 업로드 코드 보러가기](https://github.com/Pick-Fit/Back-end/tree/main/PickFit/src/main/java/com/pickfit/pickfit/multipartupload)
 
 ## S3
-``js
+```js
 여기는 S3 이미지 업로드 영역입니다..
 ```
 
