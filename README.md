@@ -115,7 +115,6 @@ TrymeonEntity savedImage = trymeonService.saveTrymeonImage( // 결과 이미지�
 ## Wishlist
 
 ```js
-
 @Transactional
 public WishlistEntity addToWishlist(WishlistDto wishlistDto) {
     if (wishlistDto == null) {
@@ -165,10 +164,6 @@ public WishlistEntity addToWishlist(WishlistDto wishlistDto) {
 
     return wishlistRepository.save(newProduct);
 }
-
-
-
-
 ```
 
 
