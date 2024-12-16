@@ -14,17 +14,6 @@
 ```js
 여기는 마이페이지 코드 영역입니다..
 ```
-
-
-
-
-
-
-
-
-
-
-
 ## Virtual
 이 자리에 간략하게 파이썬 코드에 대한 로직을 설명해주세요..
 ```js
@@ -104,16 +93,8 @@ TrymeonEntity savedImage = trymeonService.saveTrymeonImage( // 결과 이미지�
 3. **새로운 데이터 등록**:
    - 입력된 데이터를 기반으로 새 위시리스트 항목을 생성하여 저장합니다.
    - 새 항목은 기본적으로 활성 상태(`isDeleted=false`)로 저장됩니다.
-
-            
 ```
-
-
-
-
-
 ## Wishlist
-
 ```js
 @Transactional
 public WishlistEntity addToWishlist(WishlistDto wishlistDto) {
@@ -165,22 +146,10 @@ public WishlistEntity addToWishlist(WishlistDto wishlistDto) {
     return wishlistRepository.save(newProduct);
 }
 ```
-
-
-
-
-
-
-
-
-
 ## Google
 ```js
 여기는 구글 로그인 코드 영역입니다..
 ```
-
-
-
 ## S3
 여기에 S3 이미지 업로드 로직을 간단하게 작성해주세요..
 ```js
@@ -193,6 +162,3 @@ public WishlistEntity addToWishlist(WishlistDto wishlistDto) {
 - [🙋‍♂️ Wishlist 코드 보러가기](https://github.com/Pick-Fit/Back-end/tree/main/PickFit/src/main/java/com/pickfit/pickfit/wishlist)
 - [🙋‍♂️ Google 로그인 코드 보러가기](https://github.com/Pick-Fit/Back-end/tree/main/PickFit/src/main/java/com/pickfit/pickfit/oauth2)
 - [🙋‍♂️ S3 이미지 업로드 코드 보러가기](https://github.com/Pick-Fit/Back-end/tree/main/PickFit/src/main/java/com/pickfit/pickfit/multipartupload)
-
-
-
