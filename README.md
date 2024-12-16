@@ -7,7 +7,8 @@
 - [S3 이미지 업로드](#S3)
 
 
-## 주요 기능
+## ![image](https://github.com/user-attachments/assets/3fbef45d-7c68-4359-a783-a4cf9dd8110a)
+주요 기능
 
 ## MyPage
 이 자리에 간략하게 마이페이지 로직에 대해 간단하게 설명해주세요..
