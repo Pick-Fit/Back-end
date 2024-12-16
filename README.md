@@ -101,33 +101,7 @@ ResponseEntity<String> response = restTemplate.exchange(
 이 자리에 위시리스트 관련 로직에 대한 설명을 간략하게 추가해주세요..
 ```js
 여기는 위시리스트 코드 영역입니다..
-@Table(name = "wishlist")  // "wishlist" 테이블과 매핑
-public class WishlistEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  // ID 자동 생성
-    private Integer id;
-
-    @Column(name = "user_email", nullable = false)  // 사용자 이메일 컬럼
-    private String userEmail;
-
-    @Column(name = "image_url", nullable = false)  // 상품 이미지 URL 컬럼
-    private String imageUrl;
-
-    @Column(name = "user_name", nullable = false)  // 사용자 이름 컬럼
-    private String userName;
-
-    @Column(name = "price", nullable = false)  // 상품 가격 컬럼
-    private String price;
-
-    @Column(name = "product_id", nullable = false)  // 상품 ID 컬럼
-    private Long productId;
-
-    @Column(name = "title", nullable = false)  // 상품 제목 컬럼
-    private String title;
-
-    @Column(name = "isDeleted")
-    private boolean isDeleted = false; // 기본값: false (삭제되지 않은 상태)
 
 
 ```
