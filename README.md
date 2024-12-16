@@ -24,6 +24,7 @@
 
 ## Virtual
 ```js
+버츄얼 파이썬
 def apply_virtual_tryon(catvton_pipeline, person_image, clothing_image, mask_image, output_path):
     generator = torch.Generator(device="cuda").manual_seed(seed)
     results = catvton_pipeline(
@@ -40,6 +41,10 @@ def apply_virtual_tryon(catvton_pipeline, person_image, clothing_image, mask_ima
     repaint_result = repaint(person_image, mask_image, results[0])
     repaint_result.save(output_path)
     return output_path
+```
+
+```js
+백엔드 스프링부트
 ```
 
 
