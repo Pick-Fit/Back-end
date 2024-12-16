@@ -23,7 +23,14 @@
 
 
 ## Virtual
-```js
+```python
+contents = await file.read()
+    data = json.loads(contents)
+    person_url = data.get("person_url")
+    cloth_url = data.get("cloth_url")
+    category_analysis = data.get("category_analysis", {})
+    big_category = category_analysis.get("big_category")
+
 def apply_virtual_tryon(catvton_pipeline, person_image, clothing_image, mask_image, output_path):
     generator = torch.Generator(device="cuda").manual_seed(seed)
     results = catvton_pipeline(
@@ -41,6 +48,8 @@ def apply_virtual_tryon(catvton_pipeline, person_image, clothing_image, mask_ima
     repaint_result.save(output_path)
     return output_path
 ```
+apply_virtual_tryon(app.state.catvton_pipeline, person_image, clothing_image, mask_image, output_path)
+return {"message": "Done", "url": f"/static/{output_file_name}"}
 
 ```js
  @PostMapping("/process") // POST 요청을 처리
