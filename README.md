@@ -24,7 +24,6 @@
 
 ## Virtual
 ```js
-버츄얼 파이썬
 def apply_virtual_tryon(catvton_pipeline, person_image, clothing_image, mask_image, output_path):
     generator = torch.Generator(device="cuda").manual_seed(seed)
     results = catvton_pipeline(
@@ -44,8 +43,6 @@ def apply_virtual_tryon(catvton_pipeline, person_image, clothing_image, mask_ima
 ```
 
 ```js
-백엔드 스프링부트
-
  @PostMapping("/process") // POST 요청을 처리
     public ResponseEntity<?> processTryOn(@RequestBody TrymeonDTO trymeonDTO) {
         String clothImageUrl = trymeonDTO.getClothImageUrl(); // DTO에서 옷 이미지 URL을 추출
