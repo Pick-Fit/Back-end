@@ -24,7 +24,22 @@
 
 ## Virtual
 ```js
-여기는 Virtaul 코드 영역입니다..
+def apply_virtual_tryon(catvton_pipeline, person_image, clothing_image, mask_image, output_path):
+    generator = torch.Generator(device="cuda").manual_seed(seed)
+    results = catvton_pipeline(
+        person_image,
+        clothing_image,
+        mask_image,
+        num_inference_steps=50,
+        guidance_scale=2.5,
+        height=1024,
+        width=768,
+        generator=generator,
+        eta=1.0
+    )
+    repaint_result = repaint(person_image, mask_image, results[0])
+    repaint_result.save(output_path)
+    return output_path
 ```
 
 
