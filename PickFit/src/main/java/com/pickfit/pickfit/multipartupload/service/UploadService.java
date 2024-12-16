@@ -2,16 +2,13 @@ package com.pickfit.pickfit.multipartupload.service;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.pickfit.pickfit.multipartupload.entity.UploadEntity;
-import com.pickfit.pickfit.oauth2.model.entity.UserEntity;
 import org.springframework.web.multipart.MultipartFile;
 import com.pickfit.pickfit.multipartupload.repository.UploadRepository;
-import com.pickfit.pickfit.oauth2.model.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-import java.util.Optional;
 
 @Service
 public class UploadService {
