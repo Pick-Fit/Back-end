@@ -32,7 +32,7 @@
                         personImageUrl, clothImageUrl, bigCategory // JSON 형식의 데이터 작성
                 ));
             }
-```python
+```
 # 호출 된 json 파일 url load
 contents = await file.read()
     data = json.loads(contents)
