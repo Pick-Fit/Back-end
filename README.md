@@ -89,6 +89,7 @@ TrymeonEntity savedImage = trymeonService.saveTrymeonImage( // 결과 이미지�
 );
 ```
 <위시리스트 등록 기준>
+
 필수 값 검증: userEmail(사용자 이메일)과 productId(상품 ID)는 필수 입력값입니다.
 동일한 userEmail과 productId를 가진 항목이 이미 존재하는 경우, 해당 항목이 삭제(isDeleted=true) 상태라면 이를 복구합니다.
 이미 활성(isDeleted=false) 상태인 항목은 중복 등록을 허용하지 않으며, 예외를 발생시킵니다.
