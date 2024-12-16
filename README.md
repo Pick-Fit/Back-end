@@ -100,6 +100,7 @@ TrymeonEntity savedImage = trymeonService.saveTrymeonImage( // 결과 이미지�
    - 새 항목은 기본적으로 활성 상태(`isDeleted=false`)로 저장됩니다.
 ```
 ## Wishlist
+이곳에 위시리스트 로직에 대해 간단한 설명을 작성해주세요..
 ```js
 @Transactional
 public WishlistEntity addToWishlist(WishlistDto wishlistDto) {
