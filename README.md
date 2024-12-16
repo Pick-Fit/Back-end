@@ -23,6 +23,7 @@
 
 
 ## Virtual
+이 자리에 간략하게 파이썬 코드에 대한 로직을 설명해주세요..
 ```python
 contents = await file.read()
     data = json.loads(contents)
@@ -52,7 +53,7 @@ def apply_virtual_tryon(catvton_pipeline, person_image, clothing_image, mask_ima
 apply_virtual_tryon(app.state.catvton_pipeline, person_image, clothing_image, mask_image, output_path)
 return {"message": "Done", "url": f"/static/{output_file_name}"}
 ```
-
+이 자리에 호출하는 방식, 요청하는 방식에 대한 설명을 간략하게 적어주세요.
 ```js
  @PostMapping("/process") // POST 요청을 처리
     public ResponseEntity<?> processTryOn(@RequestBody TrymeonDTO trymeonDTO) {
@@ -130,6 +131,7 @@ return {"message": "Done", "url": f"/static/{output_file_name}"}
 
 
 ## Wishlist
+이 자리에 위시리스트 관련 로직에 대한 설명을 간략하게 추가해주세요..
 ```js
 여기는 위시리스트 코드 영역입니다..
 @Table(name = "wishlist")  // "wishlist" 테이블과 매핑
