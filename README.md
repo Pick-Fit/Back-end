@@ -34,12 +34,14 @@
             }
 ```
 # 호출 된 json 파일 url load
+```
 contents = await file.read()
     data = json.loads(contents)
     person_url = data.get("person_url")
     cloth_url = data.get("cloth_url")
     category_analysis = data.get("category_analysis", {})
     big_category = category_analysis.get("big_category")
+```
 # CatVTON Pipeline
 def apply_virtual_tryon(catvton_pipeline, person_image, clothing_image, mask_image, output_path):
     generator = torch.Generator(device="cuda").manual_seed(seed)
