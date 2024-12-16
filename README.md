@@ -88,7 +88,11 @@ TrymeonEntity savedImage = trymeonService.saveTrymeonImage( // 결과 이미지�
         trymeonDTO.getProductId() // 상품 ID
 );
 ```
-이 자리에 호출하는 방식, 요청하는 방식에 대한 설명을 간략하게 적어주세요.
+<위시리스트 등록 기준>
+필수 값 검증: userEmail(사용자 이메일)과 productId(상품 ID)는 필수 입력값입니다.
+동일한 userEmail과 productId를 가진 항목이 이미 존재하는 경우, 해당 항목이 삭제(isDeleted=true) 상태라면 이를 복구합니다.
+이미 활성(isDeleted=false) 상태인 항목은 중복 등록을 허용하지 않으며, 예외를 발생시킵니다.
+새롭게 등록된 항목은 기본적으로 활성 상태(isDeleted=false)로 저장됩니다.
 
             
 ```
@@ -98,11 +102,7 @@ TrymeonEntity savedImage = trymeonService.saveTrymeonImage( // 결과 이미지�
 
 
 ## Wishlist
-<위시리스트 등록 기준>
-필수 값 검증: userEmail(사용자 이메일)과 productId(상품 ID)는 필수 입력값입니다.
-동일한 userEmail과 productId를 가진 항목이 이미 존재하는 경우, 해당 항목이 삭제(isDeleted=true) 상태라면 이를 복구합니다.
-이미 활성(isDeleted=false) 상태인 항목은 중복 등록을 허용하지 않으며, 예외를 발생시킵니다.
-새롭게 등록된 항목은 기본적으로 활성 상태(isDeleted=false)로 저장됩니다.
+
 ```js
 
 @Transactional
