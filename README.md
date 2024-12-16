@@ -24,6 +24,23 @@
 
 ## Virtual
 이 자리에 간략하게 파이썬 코드에 대한 로직을 설명해주세요..
+```js
+ @PostMapping("/process") // POST 요청을 처리
+    public ResponseEntity<?> processTryOn(@RequestBody TrymeonDTO trymeonDTO) {
+        String clothImageUrl = trymeonDTO.getClothImageUrl(); // DTO에서 옷 이미지 URL을 추출
+        String personImageUrl = trymeonDTO.getPersonImageUrl(); // DTO에서 모델 이미지 URL을 추출
+        String bigCategory = trymeonDTO.getBigCategory(); // DTO에서 대분류 카테고리를 추출
+
+           File tempJsonFile; // FastAPI로 보낼 JSON 파일 선언
+        try {
+            tempJsonFile = File.createTempFile("data", ".json"); // 임시 JSON 파일 생성
+            try (FileWriter writer = new FileWriter(tempJsonFile)) { // 파일에 데이터를 쓰기 위한 FileWriter 생성
+                writer.write(String.format(
+                        "{\"person_url\":\"%s\",\"cloth_url\":\"%s\",\"category_analysis\": {\"big_category\": \"%s\"}}",
+                        personImageUrl, clothImageUrl, bigCategory // JSON 형식의 데이터 작성
+                ));
+            }
+```js
 ```python
 contents = await file.read()
     data = json.loads(contents)
@@ -52,55 +69,13 @@ def apply_virtual_tryon(catvton_pipeline, person_image, clothing_image, mask_ima
 
 apply_virtual_tryon(app.state.catvton_pipeline, person_image, clothing_image, mask_image, output_path)
 return {"message": "Done", "url": f"/static/{output_file_name}"}
-```
-이 자리에 호출하는 방식, 요청하는 방식에 대한 설명을 간략하게 적어주세요.
 ```js
- @PostMapping("/process") // POST 요청을 처리
-    public ResponseEntity<?> processTryOn(@RequestBody TrymeonDTO trymeonDTO) {
-        String clothImageUrl = trymeonDTO.getClothImageUrl(); // DTO에서 옷 이미지 URL을 추출
-        String personImageUrl = trymeonDTO.getPersonImageUrl(); // DTO에서 모델 이미지 URL을 추출
-        String bigCategory = trymeonDTO.getBigCategory(); // DTO에서 대분류 카테고리를 추출
-
-        // bigCategory는 반드시 프론트엔드에서 제공되어야 함
-        if (bigCategory == null || bigCategory.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Category is required and must not be empty.");
-        }
-
-        File tempJsonFile; // FastAPI로 보낼 JSON 파일 선언
-        try {
-            tempJsonFile = File.createTempFile("data", ".json"); // 임시 JSON 파일 생성
-            try (FileWriter writer = new FileWriter(tempJsonFile)) { // 파일에 데이터를 쓰기 위한 FileWriter 생성
-                writer.write(String.format(
-                        "{\"person_url\":\"%s\",\"cloth_url\":\"%s\",\"category_analysis\": {\"big_category\": \"%s\"}}",
-                        personImageUrl, clothImageUrl, bigCategory // JSON 형식의 데이터 작성
-                ));
-            }
-        } catch (IOException e) { // 파일 생성 중 예외 발생 시 처리
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to create JSON file: " + e.getMessage());
-        }
-
-        try {
-            MultiValueMap<String, Object> body = new LinkedMultiValueMap<>(); // 요청 본문 생성
-            body.add("file", new FileSystemResource(tempJsonFile)); // JSON 파일을 multipart/form-data로 추가
-
-            HttpHeaders headers = new HttpHeaders(); // HTTP 요청 헤더 생성
-            headers.setContentType(MediaType.MULTIPART_FORM_DATA); // Content-Type 설정
-
-            RestTemplate restTemplate = new RestTemplate(); // 외부 API 요청을 위한 RestTemplate 객체 생성
-            HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers); // 요청 본문과 헤더 포함
-
-            ResponseEntity<String> response = restTemplate.exchange(
+ResponseEntity<String> response = restTemplate.exchange(
                     catVtonApiUrl + "/upload/", // FastAPI의 업로드 엔드포인트
                     HttpMethod.POST, // POST 요청
                     requestEntity, // 요청 데이터
                     String.class // 응답 데이터를 문자열로 받음
             );
-
-            // FastAPI 응답에서 "url" 필드 추출
-            ObjectMapper objectMapper = new ObjectMapper();
-            JsonNode responseJson = objectMapper.readTree(response.getBody());
-            String relativeUrl = responseJson.get("url").asText();
-            String imageUrl = catVtonApiUrl.replace("/upload", "") + relativeUrl;
 
             // FastAPI 응답 검증 및 저장
             if (imageUrl == null || imageUrl.isEmpty()) {
@@ -112,18 +87,10 @@ return {"message": "Done", "url": f"/static/{output_file_name}"}
                     trymeonDTO.getUserEmail(), // 사용자 이메일
                     trymeonDTO.getProductId() // 상품 ID
             );
+```
+이 자리에 호출하는 방식, 요청하는 방식에 대한 설명을 간략하게 적어주세요.
 
-            return ResponseEntity.ok(savedImage); // 저장된 이미지를 응답으로 반환
-        } catch (Exception e) { // FastAPI와 통신 중 예외 발생 시 처리
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to communicate with FastAPI: " + e.getMessage());
-        } finally {
-            if (!tempJsonFile.delete()) { // 임시 파일 삭제 실패 시 로그 출력
-                System.err.println("Failed to delete temporary JSON file: " + tempJsonFile.getAbsolutePath());
-            }
-        }
-    }
-}
-
+            
 ```
 
 
