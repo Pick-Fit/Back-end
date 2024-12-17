@@ -179,9 +179,28 @@ public WishlistEntity addToWishlist(WishlistDto wishlistDto) {
 여기는 구글 로그인 코드 영역입니다..
 ```
 ## S3
-여기에 S3 이미지 업로드 로직을 간단하게 작성해주세요..
+파일을 업로드 하면 S3 버킷에 파일을 저장하고 Public URL 반환, 반환받은 URL을 DB에 저장
 ```js
-여기는 S3 이미지 업로드 영역입니다..
+public class UploadController {
+
+    private static final Logger logger = LoggerFactory.getLogger(UploadController.class);
+    private final UploadService uploadService;
+
+    public UploadController(UploadService uploadService) {
+        this.uploadService = uploadService;
+    }
+
+    @PostMapping("/upload")
+    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file, @RequestParam("email") String userEmail) {
+        logger.info("파일 업로드 요청/ 파일이름: {}", file.getOriginalFilename());
+
+        // 파일 업로드 서비스 호출
+        String fileUrl = uploadService.uploadFile(userEmail,file);
+
+        logger.info("파일업로드 성공 및 DB저장/ URL: {}", fileUrl);
+        return ResponseEntity.ok(fileUrl);
+    }
+}
 ```
 
 ### Link   
