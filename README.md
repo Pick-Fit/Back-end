@@ -27,6 +27,7 @@ public UserDTO updateUserDetails(@RequestBody UserDTO userDTO, Authentication au
 
 ```
 ## Virtual
+가상 착용 요청 처리하며, 이미지 URL과 카테고리 정보를 받아 임시 JSON 파일을 생성한 후 FastAPI로 전달하기 위해 준비하는 로직입니다.
 ```js
  @PostMapping("/process") // POST 요청을 처리
     public ResponseEntity<?> processTryOn(@RequestBody TrymeonDTO trymeonDTO) {
