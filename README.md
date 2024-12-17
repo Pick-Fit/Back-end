@@ -111,6 +111,7 @@ TrymeonEntity savedImage = trymeonService.saveTrymeonImage( // 결과 이미지�
    - 새 항목은 기본적으로 활성 상태(`isDeleted=false`)로 저장됩니다.
 ```
 ### Wishlist
+원하는 상품을 추가하는 기능, 기존 항목의 상태에 따라 복구 또는 새로 생성하게 됩니다.
 ```js
 @Transactional
 public WishlistEntity addToWishlist(WishlistDto wishlistDto) {
@@ -163,8 +164,8 @@ public WishlistEntity addToWishlist(WishlistDto wishlistDto) {
 }
 ```
 ### Google
-로그인 성공 시, 사용자 정보를 저장/업데이트하고 메인 페이지로 이동되고
-로그아웃시 OAuth2 계정 연결 해제, 인증 쿠키 삭제됩니다.
+로그인 성공 시, 사용자 정보를 저장/업데이트하고 메인 페이지로 이동됨
+로그아웃시 OAuth2 계정 연결 해제, 인증 쿠키 삭제됨
 ```js
 @Override
 public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
@@ -186,7 +187,7 @@ public void onAuthenticationSuccess(HttpServletRequest request, HttpServletRespo
 
 ```
 ## S3
-파일을 업로드 하면 S3 버킷에 파일을 저장하고 Public URL 반환, 반환받은 URL을 DB에 저장됩니다.
+파일을 업로드 하면 S3 버킷에 파일을 저장하고 Public URL 반환, 반환받은 URL을 DB에 저장됨
 ```js
 @RestController
 @RequestMapping("/api")
