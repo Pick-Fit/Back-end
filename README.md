@@ -10,7 +10,7 @@
 ## 주요 기능
 
 ## MyPage
-인증된 사용자의 이메일을 확인 후 서비스 레이어를 통해 사용자 정보를 업데이트 후 수정된 사용자 정보 반환
+인증된 사용자의 이메일을 확인 후 서비스 레이어를 통해 사용자 정보를 업데이트 , 수정된 사용자 정보 반환됩니다.
 ```js
 @PutMapping("/user")
 public UserDTO updateUserDetails(@RequestBody UserDTO userDTO, Authentication authentication) {
@@ -27,7 +27,6 @@ public UserDTO updateUserDetails(@RequestBody UserDTO userDTO, Authentication au
 
 ```
 ## Virtual
-이 자리에 간략하게 파이썬 코드에 대한 로직을 설명해주세요..
 ```js
  @PostMapping("/process") // POST 요청을 처리
     public ResponseEntity<?> processTryOn(@RequestBody TrymeonDTO trymeonDTO) {
@@ -112,7 +111,6 @@ TrymeonEntity savedImage = trymeonService.saveTrymeonImage( // 결과 이미지�
    - 새 항목은 기본적으로 활성 상태(`isDeleted=false`)로 저장됩니다.
 ```
 ### Wishlist
-이곳에 위시리스트 로직에 대해 간단한 설명을 작성해주세요..
 ```js
 @Transactional
 public WishlistEntity addToWishlist(WishlistDto wishlistDto) {
@@ -165,7 +163,8 @@ public WishlistEntity addToWishlist(WishlistDto wishlistDto) {
 }
 ```
 ### Google
-로그인 성공 시, 사용자 정보를 저장/업데이트하고 메인 페이지로 이동, 로그아웃시 OAuth2 계정 연결 해제, 인증 쿠키 삭제
+로그인 성공 시, 사용자 정보를 저장/업데이트하고 메인 페이지로 이동됨
+로그아웃시 OAuth2 계정 연결 해제, 인증 쿠키 삭제됨
 ```js
 @Override
 public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
@@ -187,7 +186,7 @@ public void onAuthenticationSuccess(HttpServletRequest request, HttpServletRespo
 
 ```
 ## S3
-파일을 업로드 하면 S3 버킷에 파일을 저장하고 Public URL 반환, 반환받은 URL을 DB에 저장
+파일을 업로드 하면 S3 버킷에 파일을 저장하고 Public URL 반환, 반환받은 URL을 DB에 저장됨
 ```js
 @RestController
 @RequestMapping("/api")
