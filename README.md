@@ -10,9 +10,31 @@
 ## 주요 기능
 
 ## MyPage
-이 자리에 간략하게 마이페이지 로직에 대해 간단하게 설명해주세요..
+인증된 사용자의 이메일을 확인 후 서비스 레이어를 통해 사용자 정보를 업데이트 후 수정된 사용자 정보 반환
 ```js
-여기는 마이페이지 코드 영역입니다..
+    @PutMapping("/user")
+    public UserDTO updateUserDetails(@RequestBody UserDTO userDTO, Authentication authentication) {
+        logger.info("PUT /api/user - 요청 수신: {}", userDTO);
+
+        if (authentication == null || !(authentication.getPrincipal() instanceof String)) {
+            logger.warn("PUT /api/user - 인증되지 않은 요청");
+            throw new RuntimeException("Unauthorized");
+        }
+
+        String email = (String) authentication.getPrincipal();
+        UserEntity updatedUser = userService.updateUserDetails(userDTO);
+        logger.info("PUT /api/user - 사용자 정보 수정 성공: email={}", email);
+
+        return new UserDTO(
+                updatedUser.getEmail(),
+                updatedUser.getName(),
+                updatedUser.getPhoneNum(),
+                updatedUser.getProfile(),
+                updatedUser.getAddress(),
+                updatedUser.getNickname(),
+                updatedUser.getRole()
+        );
+    }
 ```
 ## Virtual
 이 자리에 간략하게 파이썬 코드에 대한 로직을 설명해주세요..
