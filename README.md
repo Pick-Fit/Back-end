@@ -12,29 +12,19 @@
 ## MyPage
 인증된 사용자의 이메일을 확인 후 서비스 레이어를 통해 사용자 정보를 업데이트 후 수정된 사용자 정보 반환
 ```js
-    @PutMapping("/user")
-    public UserDTO updateUserDetails(@RequestBody UserDTO userDTO, Authentication authentication) {
-        logger.info("PUT /api/user - 요청 수신: {}", userDTO);
-
-        if (authentication == null || !(authentication.getPrincipal() instanceof String)) {
-            logger.warn("PUT /api/user - 인증되지 않은 요청");
-            throw new RuntimeException("Unauthorized");
-        }
-
-        String email = (String) authentication.getPrincipal();
-        UserEntity updatedUser = userService.updateUserDetails(userDTO);
-        logger.info("PUT /api/user - 사용자 정보 수정 성공: email={}", email);
-
-        return new UserDTO(
-                updatedUser.getEmail(),
-                updatedUser.getName(),
-                updatedUser.getPhoneNum(),
-                updatedUser.getProfile(),
-                updatedUser.getAddress(),
-                updatedUser.getNickname(),
-                updatedUser.getRole()
-        );
+@PutMapping("/user")
+public UserDTO updateUserDetails(@RequestBody UserDTO userDTO, Authentication authentication) {
+    if (authentication == null) {
+        throw new RuntimeException("Unauthorized");
     }
+
+    String email = authentication.getName(); // 이메일 추출
+    logger.info("PUT /api/user - 요청 수신: email={}, userDTO={}", email, userDTO);
+
+    UserEntity updatedUser = userService.updateUserDetails(userDTO); // 서비스 레이어 호출
+    return UserDTO.fromEntity(updatedUser); // DTO 변환 로직
+}
+
 ```
 ## Virtual
 이 자리에 간략하게 파이썬 코드에 대한 로직을 설명해주세요..
@@ -175,12 +165,32 @@ public WishlistEntity addToWishlist(WishlistDto wishlistDto) {
 }
 ```
 ### Google
+로그인 성공 시, 사용자 정보를 저장/업데이트하고 메인 페이지로 이동, 로그아웃시 OAuth2 계정 연결 해제, 인증 쿠키 삭제
 ```js
-여기는 구글 로그인 코드 영역입니다..
+@Override
+public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
+                                    Authentication authentication) throws IOException {
+    String targetUrl = "http://localhost:3000"; // 로그인 후 리다이렉트할 URL
+
+    OAuth2UserPrincipal principal = getOAuth2UserPrincipal(authentication);
+    if (principal != null) {
+        String userEmail = principal.getUserInfo().getEmail();
+        String userName = principal.getUserInfo().getName();
+
+        // 사용자 정보 저장 또는 업데이트
+        userService.handleOAuth2Login(new UserDTO(userEmail, userName));
+    }
+
+    // 리다이렉트 처리
+    getRedirectStrategy().sendRedirect(request, response, targetUrl);
+}
+
 ```
 ## S3
 파일을 업로드 하면 S3 버킷에 파일을 저장하고 Public URL 반환, 반환받은 URL을 DB에 저장
 ```js
+@RestController
+@RequestMapping("/api")
 public class UploadController {
 
     private static final Logger logger = LoggerFactory.getLogger(UploadController.class);
@@ -190,14 +200,21 @@ public class UploadController {
         this.uploadService = uploadService;
     }
 
+    /**
+     * S3 파일 업로드 API
+     * @param file      업로드할 파일 (MultipartFile)
+     * @param userEmail 사용자 이메일
+     * @return S3 파일 URL
+     */
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file, @RequestParam("email") String userEmail) {
-        logger.info("파일 업로드 요청/ 파일이름: {}", file.getOriginalFilename());
+    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file,
+                                             @RequestParam("email") String userEmail) {
+        logger.info("S3 파일 업로드 요청: 파일명={}, 사용자 이메일={}", file.getOriginalFilename(), userEmail);
 
-        // 파일 업로드 서비스 호출
-        String fileUrl = uploadService.uploadFile(userEmail,file);
+        // S3에 파일 업로드 및 URL 반환
+        String fileUrl = uploadService.uploadFile(userEmail, file);
 
-        logger.info("파일업로드 성공 및 DB저장/ URL: {}", fileUrl);
+        logger.info("S3 업로드 성공 및 DB 저장 완료: URL={}", fileUrl);
         return ResponseEntity.ok(fileUrl);
     }
 }
