@@ -33,7 +33,7 @@
                 ));
             }
 ```
-# 호출 된 json 파일 url load
+### 호출 된 json 파일 url load
 ```
 contents = await file.read()
     data = json.loads(contents)
@@ -42,7 +42,7 @@ contents = await file.read()
     category_analysis = data.get("category_analysis", {})
     big_category = category_analysis.get("big_category")
 ```
-# CatVTON Pipeline
+### CatVTON Pipeline
 ```
 def apply_virtual_tryon(catvton_pipeline, person_image, clothing_image, mask_image, output_path):
     generator = torch.Generator(device="cuda").manual_seed(seed)
@@ -61,7 +61,7 @@ def apply_virtual_tryon(catvton_pipeline, person_image, clothing_image, mask_ima
     repaint_result.save(output_path)
     return output_path
 ```
-# EndPoint
+### EndPoint
 ```
 apply_virtual_tryon(app.state.catvton_pipeline, person_image, clothing_image, mask_image, output_path)
 return {"message": "Done", "url": f"/static/{output_file_name}"}
@@ -99,7 +99,7 @@ TrymeonEntity savedImage = trymeonService.saveTrymeonImage( // 결과 이미지�
    - 입력된 데이터를 기반으로 새 위시리스트 항목을 생성하여 저장합니다.
    - 새 항목은 기본적으로 활성 상태(`isDeleted=false`)로 저장됩니다.
 ```
-## Wishlist
+### Wishlist
 이곳에 위시리스트 로직에 대해 간단한 설명을 작성해주세요..
 ```js
 @Transactional
@@ -152,7 +152,7 @@ public WishlistEntity addToWishlist(WishlistDto wishlistDto) {
     return wishlistRepository.save(newProduct);
 }
 ```
-## Google
+### Google
 ```js
 여기는 구글 로그인 코드 영역입니다..
 ```
@@ -162,7 +162,7 @@ public WishlistEntity addToWishlist(WishlistDto wishlistDto) {
 여기는 S3 이미지 업로드 영역입니다..
 ```
 
-## Link   
+### Link   
 - [🙋‍♂️ MyPage 코드 보러가기](https://github.com/Pick-Fit/Back-end/blob/main/PickFit/src/main/java/com/pickfit/pickfit/oauth2/model/controller/UserController.java)
 - [🙋‍♂️ Virtual 코드 보러가기](https://github.com/Pick-Fit/Back-end/tree/main/PickFit/src/main/java/com/pickfit/pickfit/trymeon)  
 - [🙋‍♂️ Wishlist 코드 보러가기](https://github.com/Pick-Fit/Back-end/tree/main/PickFit/src/main/java/com/pickfit/pickfit/wishlist)
